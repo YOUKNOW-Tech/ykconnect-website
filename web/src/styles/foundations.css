@@ -1,0 +1,336 @@
+/* ============================================================
+   YOUKNOW Connect — Foundations
+   Colors, typography, spacing, shadows, motion, surfaces.
+   Source of truth: YOUKNOW CI Connect 2026 brand guide.
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+/* All fonts are self-hosted from /fonts. The header/footer logo lockups
+   are real image assets, so no Google Fonts dependency is needed here. */
+
+/* --- Poppins (self-hosted, brand files) --- */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Poppins-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Poppins-Bold.woff2') format('woff2'),
+       url('/fonts/Poppins-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Poppins-ExtraBold.woff2') format('woff2'),
+       url('/fonts/Poppins-ExtraBold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Poppins-Black.woff2') format('woff2'),
+       url('/fonts/Poppins-Black.woff') format('woff');
+}
+
+/* --- Roboto (self-hosted, brand files) --- */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Roboto-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+/* --- Secondary / decorative fonts (self-hosted brand files) --- */
+/* Used ONLY in collage / sticker / poster contexts. Never body or headings. */
+@font-face {
+  font-family: 'Mansalva';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Mansalva-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'San Poster Bold JL';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/SanPosterBoldJL.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/ArchivoBlack-Regular.ttf') format('truetype');
+}
+
+:root {
+  /* ---------- Brand color: BLUE (electric, the YKC accent) ---------- */
+  --ykc-blue-500: #0057FF;   /* primary action / accent */
+  --ykc-blue-400: #4F7DFF;   /* use on navy backgrounds */
+  --ykc-blue-300: #80A0FF;
+  --ykc-blue-200: #ACC0FF;
+  --ykc-blue-100: #D7E0FF;
+
+  /* ---------- Navy (neutral dark) ---------- */
+  --ykc-navy-900: #071439;   /* primary text on light, primary dark surface */
+  --ykc-navy-700: #394361;
+  --ykc-navy-500: #6A7288;
+  --ykc-navy-300: #9CA1B0;
+  --ykc-navy-200: #CDD0D7;
+
+  /* ---------- Beige (neutral warm) ---------- */
+  --ykc-beige-500: #F3EADB;  /* primary beige surface */
+  --ykc-beige-400: #F5EEE2;
+  --ykc-beige-300: #F8F2E9;
+  --ykc-beige-200: #FAF7F1;
+  --ykc-beige-100: #FDFBF8;
+
+  /* ---------- True neutrals ---------- */
+  --ykc-off-white: #F6F6F6;
+  --ykc-white: #FFFFFF;
+  --ykc-black: #000000;       /* used sparingly, halftone only */
+
+  /* ---------- Semantic tokens (light/beige mode default) ---------- */
+  --bg:            var(--ykc-beige-500);
+  --bg-alt:        var(--ykc-white);
+  --bg-elevated:   var(--ykc-white);
+  --bg-inverse:    var(--ykc-navy-900);
+
+  --fg:            var(--ykc-navy-900);
+  --fg-muted:      var(--ykc-navy-700);
+  --fg-subtle:     var(--ykc-navy-500);
+  --fg-faint:      var(--ykc-navy-300);
+  --fg-inverse:    var(--ykc-beige-500);
+
+  --accent:        var(--ykc-blue-500);
+  --accent-hover:  #1E6CFF;        /* +6% L on blue-500 */
+  --accent-pressed:#0046CC;
+  --accent-on-dark:var(--ykc-blue-400);   /* per brand: brighter blue on navy */
+
+  --line:          var(--ykc-navy-200);
+  --line-strong:   var(--ykc-navy-500);
+  --line-dotted:   var(--ykc-navy-700);   /* dotted dividers, low opacity ok */
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:    'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-handwritten: 'Mansalva', cursive;
+  --font-poster:  'San Poster Bold JL', 'Archivo Black', Impact, sans-serif;
+  --font-poster-alt: 'Archivo Black', 'San Poster Bold JL', Impact, sans-serif;
+  --font-pixel:   'Press Start 2P', monospace;
+  --font-mono:    ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+
+  /* Display scale — Poppins, tight tracking */
+  --fs-display: clamp(48px, 6vw, 96px);
+  --fs-h1: clamp(36px, 4vw, 64px);
+  --fs-h2: clamp(28px, 3vw, 44px);
+  --fs-h3: 28px;
+  --fs-h4: 22px;
+  --fs-h5: 18px;
+  --fs-h6: 16px;
+
+  /* Body scale — Roboto */
+  --fs-body-lg: 18px;
+  --fs-body:    16px;
+  --fs-body-sm: 14px;
+  --fs-caption: 12px;
+  --fs-micro:   10px;
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-body:  1.55;
+  --lh-loose: 1.7;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.12em;   /* small caps / eyebrows */
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---------- Radii ---------- */
+  --r-none: 0;
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;     /* default card */
+  --r-xl: 28px;
+  --r-pill: 999px;
+  --r-circle: 50%;
+
+  /* ---------- Borders ---------- */
+  --bw-hairline: 1px;
+  --bw-thin: 1.5px;
+  --bw-md: 2px;
+  --bw-thick: 3px;
+
+  /* ---------- Shadows ----------
+     Per brand: #dropthedropshadow on logos. BUT retro stickers
+     explicitly use a "bold drop shadow with white outline." So
+     shadows live in two flavors: subtle UI depth + retro sticker.  */
+  --shadow-xs: 0 1px 2px rgba(7, 20, 57, 0.06);
+  --shadow-sm: 0 2px 6px rgba(7, 20, 57, 0.08);
+  --shadow-md: 0 8px 20px -8px rgba(7, 20, 57, 0.18);
+  --shadow-lg: 0 24px 48px -16px rgba(7, 20, 57, 0.24);
+  --shadow-sticker: 6px 6px 0 var(--ykc-navy-900); /* retro hard shadow */
+  --shadow-sticker-blue: 6px 6px 0 var(--ykc-blue-500);
+
+  /* ---------- Motion ---------- */
+  --ease-snap:   cubic-bezier(.2, .9, .2, 1);
+  --ease-soft:   cubic-bezier(.4, .0, .2, 1);
+  --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 360ms;
+
+  /* ---------- Z layers ---------- */
+  --z-base: 1;
+  --z-raised: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+  --z-toast: 10000;
+}
+
+/* ---------- Dark / navy theme ---------- */
+.theme-navy, [data-theme="navy"] {
+  --bg:          var(--ykc-navy-900);
+  --bg-alt:      #0E1C49;
+  --bg-elevated: #142457;
+  --bg-inverse:  var(--ykc-beige-500);
+
+  --fg:          var(--ykc-beige-500);
+  --fg-muted:    var(--ykc-navy-200);
+  --fg-subtle:   var(--ykc-navy-300);
+  --fg-faint:    var(--ykc-navy-500);
+  --fg-inverse:  var(--ykc-navy-900);
+
+  --accent:        var(--ykc-blue-400);   /* per brand: brighter blue on navy */
+  --accent-hover:  #6C92FF;
+  --accent-pressed:var(--ykc-blue-500);
+
+  --line:        rgba(255,255,255,0.12);
+  --line-strong: rgba(255,255,255,0.32);
+}
+
+/* ============================================================
+   Semantic element styles
+   Drop these in by adding the `ykc` class to a root element, or
+   set on <body>.
+   ============================================================ */
+.ykc {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ykc h1, .ykc-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+  margin: 0 0 var(--space-4);
+}
+.ykc h2, .ykc-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-3);
+}
+.ykc h3, .ykc-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-3);
+}
+.ykc h4, .ykc-h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-2);
+}
+.ykc h5, .ykc-h5 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h5);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-2);
+}
+.ykc-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--accent);
+}
+.ykc p, .ykc-body { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-muted); margin: 0 0 var(--space-3); }
+.ykc small, .ykc-caption { font-size: var(--fs-caption); color: var(--fg-subtle); }
+.ykc code, .ykc-mono { font-family: var(--font-mono); font-size: 0.95em; }
+.ykc-pixel { font-family: var(--font-pixel); letter-spacing: 0.05em; }
+.ykc-poster { font-family: var(--font-poster); text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.88; font-weight: 700; }
+.ykc-poster-alt { font-family: var(--font-poster-alt); text-transform: uppercase; letter-spacing: 0.02em; line-height: 0.9; font-weight: 900; }
+.ykc-hand { font-family: var(--font-handwritten); }
+
+/* Link */
+.ykc a, .ykc-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity var(--dur-fast) var(--ease-snap);
+}
+.ykc a:hover, .ykc-link:hover { opacity: 0.7; }
