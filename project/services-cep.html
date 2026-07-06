@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Engagement, YOUKNOW Connect</title>
+  <meta name="description" content="Real-time, personalised engagement across email, push, SMS, in-app, and WhatsApp. Partners: Braze, OneSignal, InsiderOne.">
+  <link rel="icon" type="image/png" href="assets/logos/icon-kgolo-blue.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-screen-label="Services · CEP">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="js/brand-toolkit.jsx"></script>
+  <script type="text/babel" src="js/site-chrome.jsx"></script>
+  <script type="text/babel" src="js/page-home.jsx"></script>
+  <script type="text/babel" src="js/page-service.jsx"></script>
+
+  <script type="text/babel">
+    const CEP = {
+      id: 'cep',
+      shortTag: 'CEP',
+      collage: 'assets/collages/notification-dark.png',
+      collageAlt: 'Vintage cut-out, notifications collage',
+      eyebrow: 'Customer Engagement · CEP',
+      heroTitle: { before: 'Talk to your customers ', accent: 'like they\'re people', after: '.' },
+      heroLead: "Real-time, personalised engagement across email, push, SMS, in-app, and WhatsApp. Triggered by what your users actually do, not what they look like on paper.",
+      heroCaption: '← Engagement that listens before it talks.',
+      sticker1: 'EVERY CHANNEL',
+      sticker2: 'WhatsApp-first',
+      whatYouGet: {
+        title: { before: 'One conversation, ', accent: 'every channel', after: '.' },
+        lead: "Engagement isn't about more messages. It's about the right message, in the right channel, at the moment someone actually wants to hear it.",
+        items: [
+          { t: 'Real-time triggers',     b: 'User does a thing → relevant message fires. No batch jobs. No 24-hour delays.' },
+          { t: 'Lifecycle journeys',     b: 'Welcome, onboarding, win-back, churn rescue, orchestrated across channels, not bolted together.' },
+          { t: 'Channel-aware sending',  b: 'WhatsApp for transactional. Push for nudges. Email for depth. The platform picks the right one.' },
+          { t: 'Personalisation that scales', b: 'Behaviour-led segments and content blocks that work for 10 users or 10 million.' },
+          { t: 'POPIA-aware consent',    b: "Built into the data model. Not retrofitted six months in." },
+          { t: 'A team that can run it', b: 'We train your CRM team to self-serve. The platform stays useful after we leave.' },
+        ],
+      },
+      problemsHeading: "If any of these sound familiar, let\u2019s chat:",
+      problems: [
+        "You're broadcasting the same message to your whole list, and it's quietly eroding your open rates.",
+        "WhatsApp is becoming your primary channel and your stack wasn't built for it.",
+        "Lifecycle journeys live in three different tools and nobody's quite sure which one is winning.",
+        "Your CRM team needs engineering to ship every campaign.",
+        "You've outgrown Firebase notifications but enterprise CEP feels like overkill.",
+        "Personalisation today means \"Hi {{first_name}}\", and you know it shows.",
+      ],
+      partnersHeading: "Three platforms. We'll tell you honestly which one fits.",
+      partnersLead: "Each leads its segment. None is right for everyone. We'll only implement one we think you'll actually use a year from now.",
+      partners: [
+        {
+          name: 'Braze', role: 'Enterprise',
+          body: "Enterprise CEP for B2C companies running sophisticated lifecycle programmes. Real-time orchestration across email, push, SMS, in-app, WhatsApp, and content cards.",
+          bestFor: "Mid-market to enterprise B2C with a dedicated CRM team.",
+        },
+        {
+          name: 'OneSignal', role: 'Mid-market',
+          body: "The fast, developer-friendly step up from Firebase. Push, email, SMS, in-app from a single platform, designed for speed to value and predictable pricing.",
+          bestFor: "Scaling apps and lean teams that need speed to value.",
+        },
+        {
+          name: 'InsiderOne', role: 'Web + App + CDP',
+          body: "Cross-channel engagement plus deep on-site and in-app personalisation, with a built-in CDP. Particularly strong for retail, e-commerce, and travel.",
+          bestFor: "Brands where website experience and comms must work as one.",
+        },
+      ],
+      howTitle: "We assess. We pick. We implement. Then we stay.",
+      howBody: "We're not interested in selling licences and disappearing. The measure of a successful CEP rollout isn't go-live. It's whether your team is still running it confidently a year later. So we plan for that from day one.",
+      howSteps: [
+        "Assess your team, stack, and retention mandate, and tell you honestly if you don't need a CEP yet.",
+        "Recommend the platform that actually fits, even if it's one we don't sell.",
+        "Design the event taxonomy, journey architecture, and consent model.",
+        "Implement, integrate with your data warehouse and CDP, and migrate any in-flight campaigns.",
+        "Train your CRM and marketing teams to self-serve.",
+        "Stay involved for the post-launch issues nobody warned you about.",
+      ],
+      quote: {
+        text: "Braze is not the right tool for every client. And we'll tell you that honestly if it isn't.",
+        attrib: "Our CEP partnership rule",
+      },
+      faqs: [
+        { q: "How is this different from our current email platform?", a: "Email platforms send campaigns. A CEP listens to what each customer does in real time and responds across email, push, SMS, in-app, and WhatsApp. It's the difference between a megaphone and a conversation." },
+        { q: "How long does implementation take?", a: "A focused first use case is usually live in 6 to 10 weeks. We'd rather ship one journey that works than spend six months building an empire nobody uses." },
+        { q: "Do we need clean data first?", a: "You need decent event data, not perfect data. We'll audit what you have in week one and tell you honestly if something needs fixing before go-live." },
+        { q: "Braze, OneSignal, or InsiderOne, which one?", a: "Depends on your scale, budget, and channels. That's exactly the conversation we'd have first, and we'll recommend the one that fits, not the one with the biggest margin." },
+      ],
+    };
+    ReactDOM.createRoot(document.getElementById('root')).render(<ServicePage cfg={CEP} />);
+  </script>
+</body>
+</html>

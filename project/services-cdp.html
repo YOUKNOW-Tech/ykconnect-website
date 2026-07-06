@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Data Platform, YOUKNOW Connect</title>
+  <meta name="description" content="AI-driven identity resolution and one trustworthy profile per customer. Partner: Amperity.">
+  <link rel="icon" type="image/png" href="assets/logos/icon-kgolo-blue.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-screen-label="Services · CDP">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="js/brand-toolkit.jsx"></script>
+  <script type="text/babel" src="js/site-chrome.jsx"></script>
+  <script type="text/babel" src="js/page-home.jsx"></script>
+  <script type="text/babel" src="js/page-service.jsx"></script>
+
+  <script type="text/babel">
+    const CDP = {
+      id: 'cdp',
+      shortTag: 'CDP',
+      collage: 'assets/collages/drowning-in-data.png',
+      collageAlt: 'Vintage cut-out, a hand reaching out of a pile of numbered blocks',
+      eyebrow: 'Customer Data Platform · CDP',
+      heroTitle: { before: 'One customer, ', accent: 'one record', after: '. Finally.' },
+      heroLead: "Your customer exists in six systems, spelled four different ways. A CDP resolves all of it into a single trustworthy profile, so every message, dashboard, and decision starts from the same truth.",
+      sticker1: 'GOLDEN RECORD',
+      sticker2: 'identity, resolved',
+      whatYouGet: {
+        title: { before: 'The single source of truth ', accent: 'your whole stack', after: ' has been waiting for.' },
+        lead: "A CDP isn't another dashboard. It's the foundation layer. The part that makes your engagement, analytics, and BI tools actually trustworthy.",
+        items: [
+          { t: 'Identity resolution',      b: 'AI-driven stitching matches the same human across email, phone, loyalty number, and point-of-sale, even when the data disagrees.' },
+          { t: 'A single customer view',   b: 'Unified profiles with full history, value, and preferences. One customer count everyone can finally agree on.' },
+          { t: 'Clean data, everywhere',   b: 'Resolved profiles flow out to your CEP, analytics, and BI tools, so personalisation stops misfiring.' },
+          { t: 'Audiences without SQL',    b: 'Marketers build and activate segments themselves. No ticket, no data team bottleneck.' },
+          { t: 'POPIA-ready consent',      b: 'Consent and preferences live on the profile itself, not in a spreadsheet somewhere.' },
+          { t: 'Warehouse-friendly',       b: "Lakehouse-native. Works with the data infrastructure you already have, not against it." },
+        ],
+      },
+      problemsHeading: "If any of these feel familiar, it's CDP time:",
+      problems: [
+        "The same customer appears in your systems as three different people.",
+        "Marketing, support, and finance each report a different customer count, and nobody knows which is right.",
+        "Personalisation keeps misfiring because the profile it reads is stale or wrong.",
+        "Every new campaign starts with a two-week data-cleanup project.",
+        "Your engagement platform is only as good as the data you feed it, and you know the data's bad.",
+        "POPIA consent lives in a spreadsheet. Enough said.",
+      ],
+      partnersHeading: "One platform. The identity-resolution leader.",
+      partnersLead: "We partner with Amperity because its AI-driven identity resolution is genuinely the best in the category. And if a CDP isn't what you need yet, we'll tell you that first.",
+      partners: [
+        {
+          name: 'Amperity', role: 'Enterprise CDP',
+          body: "Enterprise customer data platform with AI-driven identity resolution. Amperity stitches messy first-party data from every system into one accurate, always-fresh customer profile. The golden record the rest of your stack wishes it had.",
+          bestFor: "Enterprises with customer data fragmented across many systems and no reliable single view of the customer.",
+        },
+      ],
+      howTitle: "We map. We connect. We resolve. Then we stay.",
+      howBody: "A CDP won't fix a data problem you don't understand. So we start by mapping where your customer data actually lives and how it disagrees with itself. Then we implement against that reality, not the diagram on the whiteboard.",
+      howSteps: [
+        "Map your customer data sources, and tell you honestly if a CDP is overkill for where you are.",
+        "Connect the systems that matter: commerce, loyalty, support, engagement, warehouse.",
+        "Configure identity resolution and validate the stitching against ground truth.",
+        "Design the consent and preference model, POPIA-first.",
+        "Activate resolved profiles into your CEP, analytics, and BI tools.",
+        "Train your team, and stay around as new sources come online.",
+      ],
+      quote: {
+        text: "A CDP won't fix a data problem you don't understand. We map it first. Then we implement.",
+        attrib: "Our CDP partnership rule",
+      },
+      faqs: [
+        { q: "Do we actually need a CDP?", a: "Maybe not yet. If your customer data lives in two systems and they mostly agree, you don't. If it lives in six and nobody trusts the customer count, let's talk. We'll tell you straight either way." },
+        { q: "How is a CDP different from our data warehouse?", a: "Your warehouse stores data. A CDP resolves identity, deciding that thabo@gmail.com, +27 82 555 0199, and loyalty card 8817 are the same person, and keeps that profile fresh for the tools that need it." },
+        { q: "How long before we see a unified profile?", a: "First stitched profiles typically land within 8 to 12 weeks, depending on how many sources we're connecting and how messy they are. We map that honestly up front." },
+        { q: "What about POPIA?", a: "Consent lives on the profile itself in Amperity, so honouring an opt-out happens everywhere at once, not system by system. We design the consent model with you from day one." },
+      ],
+    };
+    ReactDOM.createRoot(document.getElementById('root')).render(<ServicePage cfg={CDP} />);
+  </script>
+</body>
+</html>

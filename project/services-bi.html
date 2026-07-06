@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Intelligence, YOUKNOW Connect</title>
+  <meta name="description" content="Real-time dashboards that give the whole business access to insights, not just the data team. Partner: DOMO.">
+  <link rel="icon" type="image/png" href="assets/logos/icon-kgolo-blue.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-screen-label="Services · BI">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="js/brand-toolkit.jsx"></script>
+  <script type="text/babel" src="js/site-chrome.jsx"></script>
+  <script type="text/babel" src="js/page-home.jsx"></script>
+  <script type="text/babel" src="js/page-service.jsx"></script>
+
+  <script type="text/babel">
+    const BI = {
+      id: 'bi',
+      shortTag: 'BI',
+      collage: 'assets/collages/statues-laptop-dark.png',
+      collageAlt: 'Vintage cut-out, statues gathered around a laptop',
+      eyebrow: 'Business Intelligence · BI',
+      heroTitle: { before: "Insights for the whole business, ", accent: 'not just the data team', after: '.' },
+      heroLead: "Real-time dashboards that connect every system you run on. Built so non-technical stakeholders self-serve, the data team stops being the bottleneck, and leadership stops waiting for answers.",
+      sticker1: 'REAL-TIME',
+      sticker2: '#dashboards',
+      whatYouGet: {
+        title: { before: 'BI that ', accent: 'people actually use', after: '.' },
+        lead: "Going live isn't success. Success is whether non-technical stakeholders are self-serving three months later. So that's what we plan for.",
+        items: [
+          { t: 'Connected source data',  b: 'CRM, ERP, marketing, finance, ops, all pulled together with 1000+ pre-built connectors.' },
+          { t: 'Real-time refresh',      b: "Decisions on today's numbers, not last week's." },
+          { t: 'Dashboards by audience', b: "Leadership view, ops view, marketing view. Each one built for its question." },
+          { t: 'Self-serve for the business', b: "Drag-and-drop exploration without writing SQL. Genuinely usable by non-technical teams." },
+          { t: 'Enterprise governance',  b: 'Row-level security, audit trails, version control. The unsexy stuff that matters.' },
+          { t: 'Off the spreadsheet',    b: 'Once people trust the dashboard, the shadow spreadsheets die quietly.' },
+        ],
+      },
+      problemsHeading: "If any of these feel familiar, we should chat:",
+      problems: [
+        "Your data is spread across five systems and nobody has a single source of truth.",
+        "The data team has become the bottleneck, fielding more requests than they can ever action.",
+        "Business units have started building shadow spreadsheets because they don't trust the BI layer.",
+        "Leadership is making slow decisions because the data isn't there when they need it.",
+        "Your legacy BI tool is slow, hard to use, or no longer fits the questions you're asking.",
+        "You're 'data rich, insight poor', and you know it.",
+      ],
+      partnersHeading: "Real-time. Connected. Built so business users can actually use it.",
+      partnersLead: "DOMO connects to over 1,000 systems out of the box and is designed so business users can build and consume dashboards without constant IT involvement. Enterprise-grade where it matters; approachable everywhere else.",
+      partners: [
+        {
+          name: 'DOMO', role: 'BI & Visualisation',
+          body: "Real-time BI and data visualisation with 1,000+ pre-built connectors. Enterprise-grade security, governance and scale; genuinely approachable for non-technical stakeholders everywhere else.",
+          bestFor: "Mid-market to enterprise with data spread across multiple systems and leadership tired of waiting for answers.",
+        },
+      ],
+      howTitle: "We start with the questions, not the dashboards.",
+      howBody: "Most BI implementations fail because someone built dashboards before figuring out what questions the business actually needs answered. We start the other way around: with the four or five decisions you'd make differently if you had better data.",
+      howSteps: [
+        "Audit your current data infrastructure and dashboard sprawl.",
+        "Identify the decisions you'd make differently with better data. That's what we build for.",
+        "Connect DOMO to your source systems via pre-built connectors (or custom where needed).",
+        "Design the dashboard layer by audience: leadership, ops, marketing, finance.",
+        "Train both the data team and business users, separately and with different content.",
+        "Measure success at three months: are non-technical users self-serving? If not, we're not done.",
+      ],
+      quote: {
+        text: "The measure of a successful BI implementation isn't going live. It's whether non-technical stakeholders are still using it three months later.",
+        attrib: "Our BI rule of thumb",
+      },
+      faqs: [
+        { q: "How is BI different from product analytics?", a: "Product analytics looks inside your product. BI looks across your whole business: sales, finance, ops, marketing, all in one place. Different questions, different tool." },
+        { q: "Can DOMO connect to our existing systems?", a: "Almost certainly. DOMO has over a thousand connectors, and for the odd system it doesn't cover, we build the pipe. Integration is the part we do most." },
+        { q: "Will our team actually use the dashboards?", a: "That's our obsession. We design dashboards around the decisions people make, not the data that happens to exist. If a chart doesn't drive a decision, it doesn't ship." },
+        { q: "How long until the first dashboards are live?", a: "First connected dashboards usually land within 4 to 8 weeks. The full rollout depends on how many systems and teams we're wiring up." },
+      ],
+    };
+    ReactDOM.createRoot(document.getElementById('root')).render(<ServicePage cfg={BI} />);
+  </script>
+</body>
+</html>

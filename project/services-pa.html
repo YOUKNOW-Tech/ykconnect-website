@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Analytics, YOUKNOW Connect</title>
+  <meta name="description" content="Funnels, retention, feature adoption. Answers to the questions GA4 can't. Partner: Amplitude.">
+  <link rel="icon" type="image/png" href="assets/logos/icon-kgolo-blue.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-screen-label="Services · Product Analytics">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="js/brand-toolkit.jsx"></script>
+  <script type="text/babel" src="js/site-chrome.jsx"></script>
+  <script type="text/babel" src="js/page-home.jsx"></script>
+  <script type="text/babel" src="js/page-service.jsx"></script>
+
+  <script type="text/babel">
+    const PA = {
+      id: 'pa',
+      shortTag: 'PA',
+      collage: 'assets/collages/binoculars-lady-dark.png',
+      collageAlt: 'Vintage cut-out, lady with binoculars spotting insights',
+      eyebrow: 'Product Analytics · PA',
+      heroTitle: { before: "Answers to the questions ", accent: "GA4 can't give you", after: '.' },
+      heroLead: "Funnels. Retention curves. Cohort analysis. Feature adoption. Built for product and growth teams who need to know what's actually happening inside the product, without an analyst ticket for every question.",
+      sticker1: 'BUILT FOR PRODUCT',
+      sticker2: 'self-serve',
+      whatYouGet: {
+        title: { before: 'Decisions without ', accent: 'the analyst bottleneck', after: '.' },
+        lead: "GA4 owns acquisition. Amplitude owns everything that happens after the install. That's not a swap. It's a complement.",
+        items: [
+          { t: 'A real event taxonomy',  b: 'Designed once, properly. Not bolted on by three different teams across two years.' },
+          { t: 'Retention curves',       b: 'Cohort-by-cohort, feature-by-feature. The single most important chart most products never produce.' },
+          { t: 'Funnel analysis',        b: 'Where users drop, why, and which segments do it worst. Built without filing a ticket.' },
+          { t: 'Feature adoption',       b: 'Did the new feature actually move retention, or just usage? Hard answers in minutes.' },
+          { t: 'Self-serve for PMs',     b: 'Product managers building their own queries by week two. Genuinely.' },
+          { t: 'GA4 still lives',        b: "We don't kill your marketing analytics. We sit alongside it." },
+        ],
+      },
+      problemsHeading: "If any of these sound like you, we should talk:",
+      problems: [
+        "Your product team makes roadmap calls on instinct because the data isn't there or isn't trustworthy.",
+        "Every product question takes three days because it goes via an analyst.",
+        "Your GA4 setup was configured for marketing. Now product is asking different questions and the answers are missing.",
+        "Leadership keeps asking for cohort retention. Your tool keeps not producing it.",
+        "Onboarding drop-off is a black box.",
+        "You shipped a feature six weeks ago. Nobody knows if it worked.",
+      ],
+      partnersHeading: "One platform. Properly implemented. Used by everyone.",
+      partnersLead: "Amplitude is built for product analytics from the ground up, not repurposed web analytics. When it's the right tool, it's the right tool. We're honest about where GA4 is sufficient and Amplitude isn't needed.",
+      partners: [
+        {
+          name: 'Amplitude', role: 'Product Analytics',
+          body: "Funnels, retention, feature adoption, cohort analysis, all purpose-built for product and growth teams. Designed to sit alongside GA4, not replace it.",
+          bestFor: "Product and growth teams making roadmap decisions on instinct because GA4 can't keep up.",
+        },
+      ],
+      howTitle: "We design the event model. Then we make it boring to query.",
+      howBody: "Most Amplitude rollouts fail at the taxonomy stage. Events are named inconsistently, properties aren't structured, and three months in nobody trusts the data. We start there, properly, with the team that'll be using it.",
+      howSteps: [
+        "Audit what's already tracked in GA4 and elsewhere, and figure out what can be reused.",
+        "Workshop a clean event taxonomy with product, growth, and engineering.",
+        "Integrate via SDK or your CDP (Segment, RudderStack, etc.). Your call.",
+        "Build the first ten charts that matter most: retention, top funnels, feature adoption.",
+        "Train PMs and growth folks to self-serve. We measure success by their queries, not ours.",
+        "Stay around for the schema changes and 'wait, why is this number different' moments.",
+      ],
+      quote: {
+        text: "We're honest about where GA4 is sufficient. We don't implement Amplitude where it isn't needed.",
+        attrib: "Our PA partnership rule",
+      },
+      faqs: [
+        { q: "We already have GA4. Why add Amplitude?", a: "GA4 tells you where traffic came from. Amplitude tells you what users did once they arrived: funnels, retention, feature adoption. Most teams need both, they answer different questions." },
+        { q: "Who is this for, product or marketing?", a: "Product and growth first. If your main questions are about campaigns and channels, attribution or BI might serve you better, and we'll say so." },
+        { q: "Do we need a data engineer to use it?", a: "No. That's the point. Once tracking is in place, product managers self-serve funnels and cohorts without writing SQL or filing a ticket." },
+        { q: "What does a tracking plan involve?", a: "We define the events that matter to your business questions, name them consistently, and implement via your stack (SDK or CDP). Weeks, not months." },
+      ],
+    };
+    ReactDOM.createRoot(document.getElementById('root')).render(<ServicePage cfg={PA} />);
+  </script>
+</body>
+</html>

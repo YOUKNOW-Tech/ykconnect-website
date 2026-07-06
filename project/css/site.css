@@ -1,0 +1,134 @@
+/* ============================================================
+   YOUKNOW Connect — Site-wide styles
+   Imports foundations, then adds layout/page-level utilities.
+   ============================================================ */
+
+@import url('./foundations.css');
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ykc-beige-500);
+  color: var(--ykc-navy-900);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+button { font-family: inherit; }
+
+/* selection */
+::selection { background: var(--ykc-blue-500); color: white; }
+
+/* page transitions — gentle fade-in on load */
+@keyframes pageFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+main { animation: pageFadeIn 360ms cubic-bezier(.2,.9,.2,1); }
+
+/* layout helpers */
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+.wrap-wide { max-width: 1320px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+.wrap-narrow { max-width: 920px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+
+/* Section padding scale */
+.sec { padding: 88px 0; }
+.sec-sm { padding: 56px 0; }
+.sec-lg { padding: 112px 0; }
+
+/* Sticky header backdrop helper */
+.header-fade {
+  background: rgba(243, 234, 219, 0.92);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+}
+
+/* Dotted hairline divider */
+.dotted-line {
+  border: 0;
+  border-top: 1.5px dotted rgba(7, 20, 57, 0.32);
+  margin: 0;
+}
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--ykc-navy-900); color: var(--ykc-beige-500);
+  padding: 14px 22px; border-radius: 999px;
+  font-family: var(--font-body); font-size: 14px;
+  box-shadow: 0 12px 32px -10px rgba(0,0,0,0.4);
+  display: flex; align-items: center; gap: 12px;
+  z-index: 200;
+  animation: toastIn .25s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes toastIn { from { transform: translate(-50%, 20px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  position: fixed; inset: 0;
+  background: var(--ykc-beige-500);
+  z-index: 150;
+  padding: 80px 32px 32px;
+  display: flex; flex-direction: column; gap: 18px;
+  animation: pageFadeIn 240ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* form field base */
+.field {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.field > label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ykc-navy-700);
+}
+.field input,
+.field textarea,
+.field select {
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid var(--ykc-navy-200);
+  background: var(--ykc-white);
+  color: var(--ykc-navy-900);
+  transition: border-color .18s cubic-bezier(.2,.9,.2,1);
+  width: 100%;
+}
+.field textarea { resize: vertical; min-height: 140px; }
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid var(--ykc-blue-500);
+  outline-offset: 2px;
+  border-color: var(--ykc-blue-500);
+}
+.field.invalid input,
+.field.invalid textarea,
+.field.invalid select {
+  border-color: #D14545;
+  background: #FEF6F6;
+}
+.field-error {
+  color: #D14545;
+  font-size: 12px;
+  margin-top: 2px;
+  font-family: var(--font-body);
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .wrap, .wrap-wide, .wrap-narrow { padding-left: 20px; padding-right: 20px; }
+  .sec { padding: 64px 0; }
+  .sec-lg { padding: 80px 0; }
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 881px) {
+  .only-mobile { display: none !important; }
+}

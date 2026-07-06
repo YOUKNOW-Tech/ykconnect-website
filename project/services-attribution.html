@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Attribution, YOUKNOW Connect</title>
+  <meta name="description" content="Cuts through platform overclaiming to show where users actually come from. Partners: AppsFlyer, Branch.">
+  <link rel="icon" type="image/png" href="assets/logos/icon-kgolo-blue.png">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-screen-label="Services · Mobile Attribution">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="js/brand-toolkit.jsx"></script>
+  <script type="text/babel" src="js/site-chrome.jsx"></script>
+  <script type="text/babel" src="js/page-home.jsx"></script>
+  <script type="text/babel" src="js/page-service.jsx"></script>
+
+  <script type="text/babel">
+    const ATTR = {
+      id: 'attribution',
+      shortTag: 'ATTR',
+      collage: 'assets/collages/rocket-ladies-dark.png',
+      collageAlt: 'Vintage cut-out, ladies riding a rocket launch',
+      eyebrow: 'Mobile Attribution · ATTR',
+      heroTitle: { before: "Where your users ", accent: "actually came from", after: '.' },
+      heroLead: "A neutral measurement layer above Meta, Google, TikTok, and every other channel, so you stop paying for installs that didn't happen, and start making spend decisions on real numbers.",
+      sticker1: 'NEUTRAL MEASUREMENT',
+      sticker2: 'no overclaim',
+      whatYouGet: {
+        title: { before: 'Real numbers under ', accent: 'paid acquisition', after: '.' },
+        lead: "Every ad platform thinks it deserves credit for the install. Without a neutral MMP, you're paying three platforms for one user. We fix that.",
+        items: [
+          { t: 'Neutral install attribution', b: 'A measurement layer above Meta, Google, TikTok, ASA, and everyone else.' },
+          { t: 'Fraud protection',            b: "Fake installs, click flooding, SDK spoofing, all caught before they cost you budget." },
+          { t: 'Deep linking that lands',     b: "Email-to-app, web-to-app, social-to-app. Users arrive where they should, not the home screen." },
+          { t: 'Connected to your stack',     b: "Attribution feeds your CEP and product analytics, not just your dashboard." },
+          { t: 'iOS + Android post-IDFA',     b: "Privacy-preserving measurement built for SKAdNetwork and AAID-restricted reality." },
+          { t: 'Honest cost per real install', b: "What was that channel actually worth? Now you can answer." },
+        ],
+      },
+      problemsHeading: "If any of these feel familiar, we should chat:",
+      problems: [
+        "Meta, Google, and TikTok all keep reporting credit for the same install.",
+        "Paid acquisition decisions are being made on platform vanity metrics, not neutral measurement.",
+        "You're running paid acquisition at scale and you don't know how much ad fraud is in your numbers.",
+        "Your Firebase attribution only tracks Google channels. Everything else is dark.",
+        "Email and push campaigns land users on the app home screen, not the content they clicked on.",
+        "Web-to-app and social-to-app flows lose context on every handoff.",
+      ],
+      partnersHeading: "Two platforms. Different strengths. We'll pick the right one, or both.",
+      partnersLead: "AppsFlyer leads on attribution breadth, fraud, and neutral measurement. Branch leads on deep linking and link UX. Often you want one. Sometimes you want both. We'll tell you which.",
+      partners: [
+        {
+          name: 'AppsFlyer', role: 'MMP',
+          body: "The market-leading mobile measurement partner. Neutral measurement layer above every major ad channel, industry-best fraud protection, and a privacy-preserving framework built for the iOS/Android era.",
+          bestFor: "Apps running paid acquisition at scale across multiple channels, particularly where fraud is a concern.",
+        },
+        {
+          name: 'Branch', role: 'Deep Linking + MMP',
+          body: "Leading deep linking platform combined with solid mobile attribution. Universal links, deferred deep links, and contextual deep links, so every campaign drops users exactly where they should land.",
+          bestFor: "Apps where deep linking is core to the experience: email-to-app, web-to-app, and social-to-app flows.",
+        },
+      ],
+      howTitle: "We connect the full stack. Then we leave you with clean data.",
+      howBody: "Attribution is rarely just attribution. It's the connective tissue between ad spend, engagement, and product analytics. We set up the whole circuit so the numbers in your dashboard match the spend in your card statement.",
+      howSteps: [
+        "Audit your current attribution setup (or absence of one) and your full paid channel mix.",
+        "Implement the right tool: AppsFlyer, Branch, or both.",
+        "Configure partner integrations for every ad channel you actually run.",
+        "Build attribution windows that match your real user acquisition model.",
+        "Set up fraud protection rules and review the first month closely.",
+        "Connect attribution data into your CEP and PA tools so it informs retention, not just acquisition.",
+      ],
+      quote: {
+        text: "Platform overclaiming is the single most expensive lie in mobile marketing. We just stop paying for it.",
+        attrib: "Our attribution rule",
+      },
+      faqs: [
+        { q: "Why can't we just trust the ad platforms' numbers?", a: "Because every platform claims the same install. Add up Meta, Google, and TikTok's dashboards and you'll have more installs than users. A neutral layer settles the argument." },
+        { q: "AppsFlyer or Branch?", a: "AppsFlyer leads on measurement and fraud protection, Branch leads on deep linking. Some businesses need one, some genuinely need both. We'll tell you which you are." },
+        { q: "Does this still work with iOS privacy changes?", a: "Yes, differently. SKAdNetwork, privacy-aware modelling, and aggregated measurement are exactly why you want a specialist tool rather than platform dashboards." },
+        { q: "How much fraud are we actually exposed to?", a: "In SSA markets we commonly see 15 to 30 percent of paid installs flagged as fraudulent on unprotected accounts. The audit usually pays for itself." },
+      ],
+    };
+    ReactDOM.createRoot(document.getElementById('root')).render(<ServicePage cfg={ATTR} />);
+  </script>
+</body>
+</html>
