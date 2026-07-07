@@ -131,7 +131,7 @@ function PartnersByCategory() {
                   <img src="/assets/shapes/concentric-circles-blue.png" alt="" style={{ position: 'absolute', right: -50, top: -50, width: 200, opacity: 0.22, pointerEvents: 'none' }} />
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, position: 'relative' }}>
                     <h3 style={{ margin: 0, lineHeight: 1 }} aria-label={p.name}>
-                      <PartnerLogo name={p.name} style={{ color: 'var(--ykc-navy-900)', height: 32, width: 140, objectFit: 'contain' }} />
+                      <PartnerLogo name={p.name} height={30} style={{ color: 'var(--ykc-navy-900)' }} />
                     </h3>
                     <Badge intent="blue-tint">{p.role}</Badge>
                   </div>

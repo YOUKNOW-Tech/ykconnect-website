@@ -210,6 +210,22 @@ export const PARTNER_LOGO_SRC = {
   Branch: '/assets/logos/partners/branch.png',
 };
 
+// Each source file has a different amount of baked-in whitespace around the
+// mark (e.g. DOMO's canvas is ~37% ink, Braze's is ~100% ink), so fixing the
+// `height` prop alone makes marks look wildly different sizes even though the
+// image box is identical. This ratio (visible ink height ÷ full canvas
+// height) lets PartnerLogo compensate so every mark reads as the same size.
+const PARTNER_LOGO_INK_RATIO = {
+  Braze: 1,
+  Amperity: 1,
+  OneSignal: 0.99,
+  InsiderOne: 0.93,
+  Amplitude: 0.65,
+  DOMO: 0.37,
+  AppsFlyer: 0.99,
+  Branch: 0.95,
+};
+
 export function PartnerLogo({ name, height = 26, onDark = false, style }) {
   const src = PARTNER_LOGO_SRC[name];
   if (!src) {
@@ -221,9 +237,10 @@ export function PartnerLogo({ name, height = 26, onDark = false, style }) {
       }}>{name}</span>
     );
   }
+  const renderedHeight = height / (PARTNER_LOGO_INK_RATIO[name] ?? 1);
   return (
     <img src={src} alt={name + ' logo'} style={{
-      height, width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block',
+      height: renderedHeight, width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block',
       filter: onDark ? 'brightness(0) invert(1)' : 'brightness(0) opacity(0.85)',
       ...(style || {}),
     }} />
