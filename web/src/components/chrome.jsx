@@ -13,7 +13,7 @@ const NAV = [
   { href: '/services/pa',            label: 'Analytics',id: 'pa',   group: 'services' },
   { href: '/services/bi',            label: 'BI',       id: 'bi',   group: 'services' },
   { href: '/services/attribution',   label: 'Attribution', id: 'attribution', group: 'services' },
-  { href: '/partners',                label: 'Partners', id: 'partners' },
+  { href: '/partners',                label: 'Technology', id: 'partners' },
 ];
 
 function currentIdFromPath(pathname) {
@@ -212,7 +212,7 @@ function Header() {
             fontFamily: 'var(--font-display)', fontWeight: 600,
             fontSize: 28, color: current === 'partners' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
             textDecoration: 'none', marginTop: 6,
-          }}>Partners</Link>
+          }}>Technology</Link>
           <div style={{ marginTop: 18 }}>
             <Btn intent="primary" size="lg" href="/contact">Let's talk →</Btn>
           </div>
@@ -233,7 +233,7 @@ function Footer() {
     ] },
     { h: 'Company', l: [
       { t: 'About',    href: '/about' },
-      { t: 'Partners', href: '/partners' },
+      { t: 'Technology', href: '/partners' },
       { t: 'Contact',  href: '/contact' },
     ] },
     { h: 'Connect', l: [
