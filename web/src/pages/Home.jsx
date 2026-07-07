@@ -6,9 +6,30 @@ import { useState, useRef, useEffect, Fragment } from 'react';
 import { SiteShell } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, BinaryStrip, PartnerLogo, ConnectorLine } from '../components/brand.jsx';
 
+// Her painted eyes, re-rendered inside elliptical windows from small inpainted
+// crops (shades/background removed) so the gaze can slide toward the light
+// without dragging the pixel shades along. Coordinates are px in the source
+// 1200x1080 collage; the crops carry a 12px margin around each window.
+const FIGURE_IMG = { w: 1200, h: 1080 };
+const FIGURE_EYES = [
+  { src: '/assets/collages/eye-left.png',  cx: 543, cy: 366, rx: 11, ry: 9,  crop: { x: 520, y: 345, w: 46, h: 42 } },
+  { src: '/assets/collages/eye-right.png', cx: 609, cy: 402, rx: 15, ry: 10, crop: { x: 582, y: 380, w: 54, h: 44 } },
+];
+// Where she sits in the hero (% of section) and how far the gaze may travel (source px).
+const GAZE = { x: 71, y: 46, reach: 7 };
+
 function BroadcastHero() {
   const [m, setM] = useState({ x: 38, y: 42 });
   const lastMove = useRef(0);
+  const [reducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  // Gaze vector in source px, saturating as the cursor moves away from her.
+  const gaze = reducedMotion
+    ? { dx: 0, dy: 0 }
+    : {
+        dx: Math.max(-1, Math.min(1, (m.x - GAZE.x) / 34)) * GAZE.reach,
+        dy: Math.max(-1, Math.min(1, (m.y - GAZE.y) / 30)) * GAZE.reach * 0.75,
+      };
 
   // Idle drift: when the mouse hasn't moved for a bit, the spotlight
   // wanders on its own so the page stays alive for passive viewers.
@@ -122,12 +143,38 @@ function BroadcastHero() {
               position: 'absolute', inset: '0 -6% auto', width: '110%', opacity: 0.55, pointerEvents: 'none',
               transform: `translate(${(m.x - 50) * 0.16}px, ${(m.y - 50) * 0.16}px)`,
             }} />
-            <img src="/assets/collages/megaphone-girl-dark.png" alt="Vintage cut-out, girl with pearl earring holding a megaphone, wearing headphones"
-              draggable="false"
-              style={{
-                position: 'relative', width: '100%', maxWidth: 560, margin: '0 auto', userSelect: 'none',
-                transform: `translate(${(m.x - 50) * -0.1}px, ${(m.y - 50) * -0.1}px)`,
-              }} />
+            <div style={{
+              position: 'relative', width: '100%', maxWidth: 560, margin: '0 auto',
+              transform: `translate(${(m.x - 50) * -0.1}px, ${(m.y - 50) * -0.1}px)`,
+            }}>
+              <img src="/assets/collages/megaphone-girl-dark.png" alt="Vintage cut-out, girl with pearl earring holding a megaphone, wearing headphones, her eyes following the light"
+                draggable="false"
+                style={{ display: 'block', width: '100%', userSelect: 'none' }} />
+              {FIGURE_EYES.map((e) => (
+                <div key={e.src} aria-hidden="true" style={{
+                  position: 'absolute',
+                  left: `${((e.cx - e.rx) / FIGURE_IMG.w) * 100}%`,
+                  top: `${((e.cy - e.ry) / FIGURE_IMG.h) * 100}%`,
+                  width: `${((e.rx * 2) / FIGURE_IMG.w) * 100}%`,
+                  height: `${((e.ry * 2) / FIGURE_IMG.h) * 100}%`,
+                  borderRadius: '50%', overflow: 'hidden', pointerEvents: 'none',
+                }}>
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    transform: `translate(${(gaze.dx / (e.rx * 2)) * 100}%, ${(gaze.dy / (e.ry * 2)) * 100}%)`,
+                    transition: 'transform 110ms ease-out',
+                  }}>
+                    <img src={e.src} alt="" draggable="false" style={{
+                      position: 'absolute',
+                      left: `${((e.crop.x - (e.cx - e.rx)) / (e.rx * 2)) * 100}%`,
+                      top: `${((e.crop.y - (e.cy - e.ry)) / (e.ry * 2)) * 100}%`,
+                      width: `${(e.crop.w / (e.rx * 2)) * 100}%`,
+                      maxWidth: 'none', height: 'auto', userSelect: 'none',
+                    }} />
+                  </div>
+                </div>
+              ))}
+            </div>
             <div className="hide-mobile" style={{
               position: 'absolute', bottom: '2%', right: '0%',
               fontFamily: 'var(--font-handwritten)', fontSize: 18, color: 'var(--ykc-blue-400)',
