@@ -75,6 +75,7 @@ function Header() {
   const isServicesActive = ['cep', 'cdp', 'pa', 'bi', 'attribution'].includes(current);
 
   return (
+    <>
     <header style={{
       position: 'sticky', top: 0, zIndex: 100,
       background: scrolled ? 'rgba(243, 234, 219, 0.94)' : 'rgba(243, 234, 219, 0.6)',
@@ -180,45 +181,46 @@ function Header() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
-      {mobileOpen && (
-        <div className="mobile-nav">
-          <button onClick={() => setMobileOpen(false)} aria-label="Close menu" style={{
-            position: 'absolute', top: 18, right: 22,
-            background: 'transparent', border: 0, fontSize: 28, cursor: 'pointer',
-            color: 'var(--ykc-navy-900)', fontFamily: 'var(--font-display)',
-          }}>×</button>
-          <div style={{ marginBottom: 8 }}><BinaryStrip /></div>
-          {[
-            NAV.find(n => n.id === 'home'),
-            NAV.find(n => n.id === 'about'),
-          ].map(l => (
-            <Link key={l.id} to={l.href} onClick={() => setMobileOpen(false)} style={{
-              fontFamily: 'var(--font-display)', fontWeight: 600,
-              fontSize: 28, color: current === l.id ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
-              textDecoration: 'none', letterSpacing: '-0.01em',
-            }}>{l.label}</Link>
-          ))}
-          <div style={{ marginTop: 6, marginBottom: 2, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ykc-blue-500)', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Services</div>
-          {services.map(s => (
-            <Link key={s.id} to={s.href} onClick={() => setMobileOpen(false)} style={{
-              fontFamily: 'var(--font-display)', fontWeight: 500,
-              fontSize: 22, color: current === s.id ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-700)',
-              textDecoration: 'none', paddingLeft: 14,
-              borderLeft: '1.5px dotted rgba(7,20,57,0.2)',
-            }}>{servicesFullLabel(s.id)}</Link>
-          ))}
-          <Link to="/partners" onClick={() => setMobileOpen(false)} style={{
-            fontFamily: 'var(--font-display)', fontWeight: 600,
-            fontSize: 28, color: current === 'partners' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
-            textDecoration: 'none', marginTop: 6,
-          }}>Technology</Link>
-          <div style={{ marginTop: 18 }}>
-            <Btn intent="primary" size="lg" href="/contact">Let's talk →</Btn>
-          </div>
-        </div>
-      )}
     </header>
+    {/* Mobile drawer */}
+    {mobileOpen && (
+      <div className="mobile-nav">
+        <button onClick={() => setMobileOpen(false)} aria-label="Close menu" style={{
+          position: 'absolute', top: 18, right: 22,
+          background: 'transparent', border: 0, fontSize: 28, cursor: 'pointer',
+          color: 'var(--ykc-navy-900)', fontFamily: 'var(--font-display)',
+        }}>×</button>
+        <div style={{ marginBottom: 8 }}><BinaryStrip /></div>
+        {[
+          NAV.find(n => n.id === 'home'),
+          NAV.find(n => n.id === 'about'),
+        ].map(l => (
+          <Link key={l.id} to={l.href} onClick={() => setMobileOpen(false)} style={{
+            fontFamily: 'var(--font-display)', fontWeight: 600,
+            fontSize: 28, color: current === l.id ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
+            textDecoration: 'none', letterSpacing: '-0.01em',
+          }}>{l.label}</Link>
+        ))}
+        <div style={{ marginTop: 6, marginBottom: 2, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ykc-blue-500)', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Services</div>
+        {services.map(s => (
+          <Link key={s.id} to={s.href} onClick={() => setMobileOpen(false)} style={{
+            fontFamily: 'var(--font-display)', fontWeight: 500,
+            fontSize: 22, color: current === s.id ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-700)',
+            textDecoration: 'none', paddingLeft: 14,
+            borderLeft: '1.5px dotted rgba(7,20,57,0.2)',
+          }}>{servicesFullLabel(s.id)}</Link>
+        ))}
+        <Link to="/partners" onClick={() => setMobileOpen(false)} style={{
+          fontFamily: 'var(--font-display)', fontWeight: 600,
+          fontSize: 28, color: current === 'partners' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
+          textDecoration: 'none', marginTop: 6,
+        }}>Technology</Link>
+        <div style={{ marginTop: 18 }}>
+          <Btn intent="primary" size="lg" href="/contact">Let's talk →</Btn>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
 
