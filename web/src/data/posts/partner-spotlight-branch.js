@@ -1,6 +1,6 @@
 export default {
   slug: 'partner-spotlight-branch',
-  title: 'Partner spotlight: Branch — every link lands exactly where it should',
+  title: 'Partner spotlight: Branch, deep links that land exactly where they should',
   heroTitle: { before: 'Partner spotlight: ', accent: 'Branch', after: '' },
   description:
     'Why we partner with Branch for deep linking and mobile attribution: email-to-app, web-to-app, and social-to-app journeys that keep their context on every handoff.',
@@ -20,19 +20,19 @@ export default {
     },
     {
       type: 'p',
-      text: 'Deep linking is the unglamorous plumbing that fixes it — and Branch is the best in the world at that plumbing, with solid mobile attribution built into the same tool.',
+      text: 'Deep linking is the unglamorous plumbing that fixes it, and Branch is the best in the world at that plumbing, with solid mobile attribution built into the same tool.',
     },
     { type: 'h2', text: 'What Branch actually is' },
     {
       type: 'p',
-      text: 'Branch is a deep linking platform and mobile measurement partner in one. On the linking side it covers the full toolkit: universal links, deferred deep links (the user installs the app first, then lands on the right screen), and contextual deep links across iOS and Android. On the measurement side it attributes installs and events across channels, with particularly strong coverage of email, social, and web campaigns — the places links actually live.',
+      text: 'Branch is a deep linking platform and mobile measurement partner in one. On the linking side it covers the full toolkit: universal links, deferred deep links (the user installs the app first, then still lands on the right screen), and contextual deep links across iOS and Android. On the measurement side it attributes installs and events across channels, with particularly strong coverage of email, social, and web campaigns, which is where links actually live.',
     },
     { type: 'h2', text: 'Where it genuinely shines' },
     {
       type: 'list',
       items: [
-        'Best-in-class deep linking: every campaign, email, push, or social link drops users exactly where they should land.',
-        'Deferred deep linking, so even a brand-new install ends on the content that was clicked — not the home screen.',
+        'Deep linking that is genuinely best in class. Every campaign, email, push, or social link drops users exactly where they should land.',
+        'Deferred deep linking, so even a brand-new install ends on the content that was clicked instead of the home screen.',
         'Journeys: smart web-to-app banners that convert mobile web traffic into app installs.',
         'A clean, well-worn Amplitude integration, so attribution data flows straight into product analytics.',
         'Competitive pricing against AppsFlyer, particularly at mid-market scale.',
@@ -41,23 +41,23 @@ export default {
     { type: 'h2', text: 'The honest bit' },
     {
       type: 'p',
-      text: 'At enterprise scale, AppsFlyer is ahead on attribution breadth and fraud protection — if fraud at volume is your primary concern, that’s the conversation to have first. Branch’s edge is the linking experience and the value it packs at mid-market prices. Some businesses genuinely need both platforms; plenty only need one. We’ll tell you which you are, because we sell both and favour neither.',
+      text: 'At enterprise scale, AppsFlyer is ahead on attribution breadth and fraud protection. If fraud at volume is your primary concern, that’s the conversation to have first. Branch’s edge is the linking experience and the value it packs at mid-market prices. Some businesses genuinely need both platforms; plenty only need one. We’ll tell you which you are, because we sell both and favour neither.',
     },
     {
       type: 'quote',
-      text: 'AppsFlyer leads on measurement and fraud. Branch leads on deep linking. Some clients need one, some need both — and we’ll tell you which you are.',
+      text: 'AppsFlyer leads on measurement and fraud. Branch leads on deep linking. Some clients need one, some need both, and we’ll tell you which you are.',
       attrib: 'Our attribution rule of thumb',
     },
     { type: 'h2', text: 'Who it’s right for' },
     {
       type: 'p',
-      text: 'Apps where the journey spans web and app: email-to-app, social-to-app, web-to-app. If deep linking is core to your user experience — commerce, media, fintech onboarding — Branch belongs on your shortlist. It’s also the pragmatic pick for mid-market apps that want attribution and linking from one tool without enterprise MMP pricing.',
+      text: 'Apps where the journey spans web and app: email-to-app, social-to-app, web-to-app. If deep linking is core to your user experience (commerce, media, fintech onboarding), Branch belongs on your shortlist. It’s also the pragmatic pick for mid-market apps that want attribution and linking from one tool without enterprise MMP pricing.',
     },
     { type: 'h2', text: 'How we implement it' },
     {
       type: 'list',
       items: [
-        'Link infrastructure set up properly across iOS and Android — universal links are famously fiddly, and we’ve made the mistakes already.',
+        'Link infrastructure set up properly across iOS and Android. Universal links are famously fiddly, and we’ve made the mistakes already.',
         'Integration with your engagement platform, so every push and email carries a link that lands.',
         'Flow QA across the messy real-world paths: installed, not installed, app update pending.',
         'Go-live testing on real devices and real networks, because that’s where deep links break.',
@@ -66,7 +66,7 @@ export default {
     {
       type: 'callout',
       title: 'The African market angle',
-      text: 'When WhatsApp and social are your dominant channels, nearly every customer journey starts with a tapped link on a phone. In this market, deep linking isn’t an optimisation — it’s the front door.',
+      text: 'When WhatsApp and social are your dominant channels, nearly every customer journey starts with a tapped link on a phone. That makes deep linking less of an optimisation and more of a front door.',
     },
     {
       type: 'cta',

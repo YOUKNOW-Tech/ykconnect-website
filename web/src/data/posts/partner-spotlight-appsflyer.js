@@ -1,6 +1,6 @@
 export default {
   slug: 'partner-spotlight-appsflyer',
-  title: 'Partner spotlight: AppsFlyer — stop paying for installs that never happened',
+  title: 'Partner spotlight: AppsFlyer, or how to stop paying for installs that never happened',
   heroTitle: { before: 'Partner spotlight: ', accent: 'AppsFlyer', after: '' },
   description:
     'Why we partner with AppsFlyer for mobile attribution: neutral measurement above every ad channel, and fraud protection that matters more in Africa than anywhere.',
@@ -20,28 +20,28 @@ export default {
     },
     {
       type: 'p',
-      text: 'The only fix is a neutral referee — a measurement layer that sits above all the channels and settles the argument with data none of them control. That’s what a mobile measurement partner does, and AppsFlyer is the market leader for a reason.',
+      text: 'The only fix is a neutral referee: a measurement layer that sits above all the channels and settles the argument with data none of them control. That’s what a mobile measurement partner does, and AppsFlyer is the market leader for a reason.',
     },
     { type: 'h2', text: 'What AppsFlyer actually is' },
     {
       type: 'p',
-      text: 'AppsFlyer is a mobile measurement partner (MMP): it connects every install and in-app event back to the specific campaign, channel, and creative that drove it — across Meta, Google, TikTok, Apple Search Ads, and everything else you run. On top of attribution sit two things that matter enormously: industry-best fraud protection, and a privacy-preserving framework built for the post-IDFA world of iOS ATT and Android Privacy Sandbox.',
+      text: 'AppsFlyer is a mobile measurement partner (MMP). It connects every install and in-app event back to the specific campaign, channel, and creative that drove it, across Meta, Google, TikTok, Apple Search Ads, and everything else you run. On top of attribution sit two things that matter enormously: industry-best fraud protection, and a privacy-preserving framework built for the post-IDFA world of iOS ATT and Android Privacy Sandbox.',
     },
     { type: 'h2', text: 'Where it genuinely shines' },
     {
       type: 'list',
       items: [
-        'Neutral attribution across every major ad channel — one version of the truth about where users came from.',
-        'Best-in-class fraud protection: fake installs, click flooding, and SDK spoofing caught before they burn budget.',
+        'Neutral attribution across every major ad channel, giving you one version of the truth about where users came from.',
+        'Best-in-class fraud protection. Fake installs, click flooding, and SDK spoofing get caught before they burn budget.',
         'Privacy-preserving measurement that still works under SKAdNetwork and AAID restrictions.',
-        'Deep integrations with Amplitude, Braze, OneSignal, and Branch, so attribution feeds your whole stack — not just a dashboard.',
+        'Deep integrations with Amplitude, Braze, OneSignal, and Branch, so attribution feeds your whole stack and not just a dashboard.',
         'AppsFlyer Zero, a free entry plan that lets early-stage apps start measuring properly from day one.',
       ],
     },
     { type: 'h2', text: 'The honest bit' },
     {
       type: 'p',
-      text: 'Costs scale with install volume and can become significant for high-volume apps, and at enterprise scale the platform needs dedicated ops attention to run well. And if you’re not running paid acquisition at all, you don’t need an MMP — organic-only apps should spend this money elsewhere, and we’ll happily tell you where.',
+      text: 'Costs scale with install volume and can become significant for high-volume apps, and at enterprise scale the platform needs dedicated ops attention to run well. And if you’re not running paid acquisition at all, you don’t need an MMP. Organic-only apps should spend this money elsewhere, and we’ll happily tell you where.',
     },
     {
       type: 'quote',
@@ -51,23 +51,23 @@ export default {
     { type: 'h2', text: 'Who it’s right for' },
     {
       type: 'p',
-      text: 'Any app running paid acquisition across multiple channels — especially at scale, and especially where fraud is a live concern. If your spend decisions are currently based on the ad platforms’ own dashboards, you are, by definition, flying blind with confident-looking instruments.',
+      text: 'Any app running paid acquisition across multiple channels, especially at scale, and especially where fraud is a live concern. If your spend decisions are currently based on the ad platforms’ own dashboards, you are, by definition, flying blind with confident-looking instruments.',
     },
     { type: 'h2', text: 'How we implement it' },
     {
       type: 'list',
       items: [
-        'Audit your current attribution setup — or absence of one — and your full paid channel mix.',
+        'Audit your current attribution setup (or the absence of one) and your full paid channel mix.',
         'Configure partner integrations for every channel you actually run.',
         'Build attribution windows that match your real acquisition model, not the defaults.',
         'Set up fraud rules and review the first month closely, because that’s when the surprises surface.',
-        'Connect attribution into your engagement and analytics tools, so it informs retention — not just acquisition.',
+        'Connect attribution into your engagement and analytics tools, so it informs retention and not just acquisition.',
       ],
     },
     {
       type: 'callout',
       title: 'The African market angle',
-      text: 'Ad fraud is a real and underappreciated problem in African digital advertising — on unprotected accounts we commonly see 15 to 30 percent of paid installs flagged as fraudulent. Here, AppsFlyer’s fraud protection isn’t a feature. It’s the business case.',
+      text: 'Ad fraud is a real and underappreciated problem in African digital advertising. On unprotected accounts we commonly see 15 to 30 percent of paid installs flagged as fraudulent. That makes AppsFlyer’s fraud protection less of a feature and more of the actual business case.',
     },
     {
       type: 'cta',

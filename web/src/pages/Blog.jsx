@@ -62,14 +62,14 @@ export default function Blog() {
     <SiteShell>
       <Seo
         title="Blog · YOUKNOW Connect"
-        description="Honest thinking on customer engagement, data, analytics, and BI for African businesses — plus straight-talking spotlights on the platforms we partner with."
+        description="Honest thinking on customer engagement, data, analytics, and BI for African businesses, plus straight-talking spotlights on the platforms we partner with."
         path="/blog"
         jsonLd={jsonLd}
       />
       <PageHero
         eyebrow="The Connect blog"
         title={<>Straight talk on <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>customer technology</em>.</>}
-        lead="Platform spotlights, market insight, and the occasional strong opinion — written for African businesses that want more from their customer data. No buzzword soup."
+        lead="Platform spotlights, market insight, and the occasional strong opinion, written for African businesses that want more from their customer data. No buzzword soup."
         sticker={<Sticker bg="var(--ykc-blue-500)" color="white" rotate={4}>NO FLUFF</Sticker>}
         stickerPos={{ right: 90, top: 'auto', bottom: 30 }}
       />

@@ -53,7 +53,7 @@ function Block({ block }) {
             <footer style={{
               marginTop: 10, fontFamily: 'var(--font-mono)', fontSize: 11,
               letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--ykc-blue-500)',
-            }}>— {block.attrib}</footer>
+            }}>{block.attrib}</footer>
           )}
         </blockquote>
       );

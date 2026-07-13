@@ -30,7 +30,7 @@ export default {
     },
     {
       type: 'p',
-      text: 'Meanwhile the parts that actually determine success — social, paid media, engagement, data, and analytics — get treated as separate conversations, run by separate vendors, who never talk to each other. Somebody has to tie that thread together. That’s us.',
+      text: 'Meanwhile social, paid media, engagement, data, and analytics all get treated as separate conversations, run by separate vendors who never talk to each other. Those happen to be the parts that decide whether any of this works. Somebody has to tie that thread together, and that somebody is us.',
     },
     { type: 'h2', text: 'What we actually offer' },
     {
@@ -40,11 +40,11 @@ export default {
     {
       type: 'list',
       items: [
-        'Customer engagement — real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp, with platforms like Braze, OneSignal, and InsiderOne.',
-        'Customer data — one accurate, trustworthy profile per customer, with Amperity’s AI-driven identity resolution.',
-        'Product analytics — funnels, retention, and feature adoption your product team can self-serve, with Amplitude.',
-        'Business intelligence — real-time dashboards the whole business can use, not just the data team, with DOMO.',
-        'Mobile attribution — neutral measurement of where your users really came from, with AppsFlyer and Branch.',
+        'Customer engagement: real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp, with platforms like Braze, OneSignal, and InsiderOne.',
+        'Customer data: one accurate, trustworthy profile per customer, with Amperity’s AI-driven identity resolution.',
+        'Product analytics: funnels, retention, and feature adoption your product team can self-serve, with Amplitude.',
+        'Business intelligence: real-time dashboards the whole business can use, not just the data team, with DOMO.',
+        'Mobile attribution: neutral measurement of where your users really came from, with AppsFlyer and Branch.',
       ],
     },
     {
@@ -54,7 +54,7 @@ export default {
     { type: 'h2', text: 'Platform-agnostic, and we mean it' },
     {
       type: 'p',
-      text: 'We partner with platforms we believe lead their categories. But we’re not married to any of them. If two of our partners would both work for you, we’ll lay out the trade-offs honestly. If none of them fit, we’ll say that too — even when it costs us a deal. Expectation management is a core service, not a disclaimer.',
+      text: 'We partner with platforms we believe lead their categories. But we’re not married to any of them. If two of our partners would both work for you, we’ll lay out the trade-offs honestly. If none of them fit, we’ll say that too, even when it costs us a deal. Expectation management is a core service, not a disclaimer.',
     },
     {
       type: 'quote',
@@ -64,16 +64,16 @@ export default {
     { type: 'h2', text: 'Why Africa-first matters' },
     {
       type: 'p',
-      text: 'Global platforms are built for global averages. But WhatsApp is the dominant channel across much of Sub-Saharan Africa. Data costs make heavy SDKs expensive for your users. Ad fraud quietly eats acquisition budgets here at rates that would alarm a European CMO. And POPIA — plus the wave of similar legislation across the continent — changes how consent has to work.',
+      text: 'Global platforms are built for global averages. But WhatsApp is the dominant channel across much of Sub-Saharan Africa. Data costs make heavy SDKs expensive for your users. Ad fraud quietly eats acquisition budgets here at rates that would alarm a European CMO. And POPIA, along with the wave of similar laws emerging across the continent, changes how consent has to work.',
     },
     {
       type: 'p',
-      text: 'We live in this market. We advise on the technology and the local realities around it, because a platform recommendation that ignores your compliance landscape isn’t a recommendation. It’s a liability.',
+      text: 'We live in this market. We advise on the technology and on the local realities around it, because a platform recommendation that ignores your compliance landscape is going to hurt you later, no matter how good the demo was.',
     },
     {
       type: 'callout',
       title: 'What you’ll find on this blog',
-      text: 'Honest looks at the platforms we partner with — including where they’re not the right fit — plus practical thinking on engagement, data, and analytics in African markets. No buzzword soup. Promise.',
+      text: 'Honest looks at the platforms we partner with, including where they’re not the right fit, plus practical thinking on engagement, data, and analytics in African markets. No buzzword soup. Promise.',
     },
     { type: 'h2', text: 'Let’s talk' },
     {
