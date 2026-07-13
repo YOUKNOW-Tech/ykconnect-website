@@ -353,8 +353,9 @@ function NoYesList() {
           </div>
         </div>
         <p style={{ fontSize: 16, lineHeight: 1.6, color: 'var(--ykc-navy-700)', maxWidth: 560, margin: '44px 0 0' }}>
-          Platform-agnostic and commission-blind: we recommend what's right for you,
-          even when it's a tool we don't sell. Terrible salesmanship. Great partnerships.
+          Platform-agnostic, always: we recommend what actually fits, not what's
+          easiest to sell. Sometimes that means pointing you at a tool we don't
+          even offer. Terrible salesmanship. Great partnerships.
         </p>
       </div>
       <style>{`

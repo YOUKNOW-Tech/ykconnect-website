@@ -54,7 +54,7 @@ export default {
     { type: 'h2', text: 'Platform-agnostic, and we mean it' },
     {
       type: 'p',
-      text: 'We partner with platforms we believe lead their categories. But we’re not married to any of them. If two of our partners would both work for you, we’ll lay out the trade-offs honestly. If none of them fit, we’ll say that too, even when it costs us a deal. Expectation management is a core service, not a disclaimer.',
+      text: 'We partner with platforms we believe lead their categories, and we back them because we’ve seen them work. If you’re already using something else that suits you, we’ll support that too. If two of our partners would both work for you, we’ll lay out the trade-offs honestly. If none of them fit, we’ll say that too, even when it costs us a deal. Expectation management is a core service, not a disclaimer.',
     },
     {
       type: 'quote',

@@ -185,11 +185,11 @@ function PartnersHonestyNote() {
             margin: '6px 0 18px',
           }}>
             We're partners with these platforms because they're genuinely good.<br />
-            <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>But we're not tied to any of them.</em>
+            <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>And we're glad to work with plenty of others too.</em>
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }} className="ph-note-grid">
             <p style={{ fontSize: 16, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: 0 }}>
-              If your situation calls for a tool we don't partner with, we'll say so. If two of our partners would both work, we'll tell you the trade-offs honestly.
+              If you're already using a tool we don't formally partner with, we'll still help you make it work. If two of our partners would both suit you, we'll walk you through the trade-offs honestly.
             </p>
             <p style={{ fontSize: 16, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: 0 }}>
               If a platform we sell isn't the right call for you, we'll tell you that too, even when it costs us a deal. The only bad recommendation is the one that doesn't fit.

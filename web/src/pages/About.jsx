@@ -52,11 +52,11 @@ function AboutStory() {
 function AboutPrinciples() {
   const list = [
     { t: "Recommend what's right.", b: "Even when that's a tool we don't sell. Sometimes we talk ourselves out of a sale. That's the job." },
-    { t: "Confident, direct, human.", b: "No jargon. No deck-flipping. The conversation feels like talking to a sharp expert who respects your time." },
+    { t: "Confident, direct, human.", b: "No jargon. No deck-flipping. You're talking to a sharp expert who respects your time." },
     { t: "Africa-first.", b: "POPIA. WhatsApp-primary channels. Patchy connectivity. Mobile-money. We don't bolt local context on. We build from it." },
     { t: "Honest about scope.", b: "If you don't need us yet, we'll tell you. If a smaller tool would do the job, we'll point you at it." },
     { t: "Stay after the contract.", b: "We're the partner you call when something isn't working, not just when you're buying." },
-    { t: "Boringly predictable delivery.", b: "We've made implementation almost dull. The drama left the building. Customers prefer it." },
+    { t: "Sharp delivery, zero drama.", b: "We set it up properly the first time, ship on time, and go further than the brief asks. No fire drills, no excuses." },
   ];
   return (
     <section style={{ background: 'var(--ykc-beige-500)', padding: '96px 0' }}>
@@ -248,7 +248,7 @@ function AboutFamily() {
         </p>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: 16 }}>
           <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">Cape Town · ZA</Sticker>
-          <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm">Since 2015</Sticker>
+          <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm">Since 2013</Sticker>
           <Sticker bg="var(--ykc-navy-900)" color="var(--ykc-blue-400)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)">YOUKNOW &lt;3</Sticker>
         </div>
       </div>
