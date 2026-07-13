@@ -7,76 +7,7 @@ import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Badge, PartnerLogo } from '../components/brand.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
 import { Seo } from '../components/Seo.jsx';
-
-const PARTNERS_DATA = [
-  {
-    cat: 'CEP', catLong: 'Customer Engagement', href: '/services/cep',
-    items: [
-      {
-        name: 'OneSignal', role: 'Mid-market CEP · Push-first',
-        what: 'The fast, developer-friendly step up from Firebase. Best-in-class push performance alongside email, SMS, and in-app from a single platform. Days to implement, predictable pricing, marketer-operable.',
-        bestFor: 'Scaling apps and lean teams that need speed to value and predictable cost.',
-        wedoes: ['Implementation', 'Firebase migration', 'Event model', 'Self-serve enablement'],
-      },
-      {
-        name: 'InsiderOne', role: 'CEP + Personalisation + CDP',
-        what: "Cross-channel engagement plus deep on-site and in-app personalisation, with a built-in CDP. Particularly strong in retail, e-commerce, and travel, where the website experience matters as much as the message.",
-        bestFor: "Companies where website experience and customer comms must work as one: retail, e-commerce, travel.",
-        wedoes: ['Data model', 'CDP config', 'Personalisation rules', 'Marketing+product training'],
-      },
-    ],
-  },
-  {
-    cat: 'CDP', catLong: 'Customer Data Platform', href: '/services/cdp',
-    items: [
-      {
-        name: 'Amperity', role: 'Enterprise CDP',
-        what: "Enterprise customer data platform with AI-driven identity resolution. Amperity stitches messy first-party data from every system into one accurate, always-fresh customer profile. The golden record the rest of your stack wishes it had.",
-        bestFor: "Enterprises with customer data fragmented across many systems and no reliable single view of the customer.",
-        wedoes: ['Source mapping', 'Identity resolution', 'Consent model', 'Activation to CEP + BI'],
-      },
-    ],
-  },
-  {
-    cat: 'PA', catLong: 'Product Analytics', href: '/services/pa',
-    items: [
-      {
-        name: 'Amplitude', role: 'Product Analytics',
-        what: "Purpose-built product analytics. Funnels, retention, cohort analysis, feature adoption, for product and growth teams that need answers without filing a ticket. Designed to sit alongside GA4, not replace it.",
-        bestFor: "Product and growth teams making roadmap decisions on instinct because GA4 can't keep up.",
-        wedoes: ['Event taxonomy', 'SDK or CDP integration', 'Charts that matter', 'PM self-serve training'],
-      },
-    ],
-  },
-  {
-    cat: 'BI', catLong: 'Business Intelligence', href: '/services/bi',
-    items: [
-      {
-        name: 'DOMO', role: 'BI & Visualisation',
-        what: "Real-time BI and data visualisation with 1,000+ pre-built connectors. Enterprise-grade where it matters (security, governance, scale); genuinely approachable for non-technical stakeholders everywhere else.",
-        bestFor: "Mid-market to enterprise with data spread across multiple systems and a leadership team tired of waiting.",
-        wedoes: ['Source integration', 'Dashboards by audience', 'Governance setup', 'Business-user training'],
-      },
-    ],
-  },
-  {
-    cat: 'ATTR', catLong: 'Mobile Attribution', href: '/services/attribution',
-    items: [
-      {
-        name: 'AppsFlyer', role: 'MMP',
-        what: "Market-leading mobile measurement partner. A neutral measurement layer above Meta, Google, TikTok, ASA and beyond. Industry-best fraud protection. Privacy-preserving framework built for iOS/Android post-IDFA.",
-        bestFor: "Apps running paid acquisition at scale across multiple channels, especially where fraud is a concern.",
-        wedoes: ['Implementation', 'Partner integrations', 'Attribution windows', 'Fraud rules'],
-      },
-      {
-        name: 'Branch', role: 'Deep Linking + MMP',
-        what: "Leading deep linking combined with solid mobile attribution. Universal links, deferred deep links, contextual deep links, so every campaign, email, push, or social link drops users exactly where they should land.",
-        bestFor: "Apps where deep linking is core to the experience: email-to-app, web-to-app, social-to-app flows.",
-        wedoes: ['Link infrastructure', 'Integrations with CEP', 'Flow QA', 'Go-live testing'],
-      },
-    ],
-  },
-];
+import { PARTNERS_DATA } from '../data/partners.js';
 
 function PartnersByCategory() {
   return (
@@ -112,7 +43,7 @@ function PartnersByCategory() {
               gap: 16,
             }} className="partners-card-grid">
               {cat.items.map(p => (
-                <article key={p.name} style={{
+                <article key={p.slug} style={{
                   background: 'var(--ykc-beige-300)',
                   border: '1.5px dotted rgba(7,20,57,0.22)',
                   borderRadius: 20, padding: '28px 28px 24px',
@@ -148,9 +79,32 @@ function PartnersByCategory() {
                       ))}
                     </div>
                   </div>
+                  <Link to={`/partners/${p.slug}`} style={{
+                    marginTop: 2, alignSelf: 'flex-start', position: 'relative',
+                    fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 13.5,
+                    color: 'var(--ykc-blue-500)', textDecoration: 'none',
+                  }}>Learn more about {p.name} →</Link>
                 </article>
               ))}
             </div>
+
+            {cat.secondary && cat.secondary.length > 0 && (
+              <div style={{
+                marginTop: 22, paddingTop: 20, borderTop: '1px dotted rgba(7,20,57,0.18)',
+                display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap',
+              }}>
+                <span style={{
+                  fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700,
+                  letterSpacing: '0.14em', textTransform: 'uppercase',
+                  color: 'var(--ykc-navy-500)', whiteSpace: 'nowrap',
+                }}>Also implement &amp; support</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 26, flexWrap: 'wrap' }}>
+                  {cat.secondary.map((name) => (
+                    <PartnerLogo key={name} name={name} height={16} style={{ color: 'var(--ykc-navy-700)', opacity: 0.6 }} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

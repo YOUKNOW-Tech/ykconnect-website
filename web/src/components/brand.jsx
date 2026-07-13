@@ -207,6 +207,7 @@ export const PARTNER_LOGO_SRC = {
   DOMO: '/assets/logos/partners/domo.png',
   AppsFlyer: '/assets/logos/partners/appsflyer.png',
   Branch: '/assets/logos/partners/branch.png',
+  Braze: '/assets/logos/partners/braze.png',
 };
 
 // Each source file has a different amount of baked-in whitespace around the

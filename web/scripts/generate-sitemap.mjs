@@ -3,6 +3,7 @@
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { POSTS } from '../src/data/posts/index.js';
+import { ALL_PARTNER_SLUGS } from '../src/data/partners.js';
 import { SITE_URL } from '../src/data/site.js';
 
 const STATIC_ROUTES = [
@@ -23,6 +24,7 @@ const today = new Date().toISOString().slice(0, 10);
 const urls = [
   ...STATIC_ROUTES.map((path) => ({ loc: SITE_URL + path, lastmod: today })),
   ...POSTS.map((p) => ({ loc: `${SITE_URL}/blog/${p.slug}`, lastmod: p.date })),
+  ...ALL_PARTNER_SLUGS.map((slug) => ({ loc: `${SITE_URL}/partners/${slug}`, lastmod: today })),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
