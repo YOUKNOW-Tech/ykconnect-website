@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { SiteShell } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, Badge, ConnectorLine, PartnerLogo } from '../components/brand.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
+import { Seo } from '../components/Seo.jsx';
 
 function ServiceHero({ cfg }) {
   return (
@@ -438,8 +439,15 @@ function ServiceRelated({ cfg }) {
 }
 
 export default function ServicePage({ cfg }) {
+  const serviceName = cfg.eyebrow.split(' · ')[0];
   return (
     <SiteShell>
+      <Seo
+        title={`${serviceName} · YOUKNOW Connect`}
+        description={cfg.heroLead}
+        path={`/services/${cfg.id}`}
+        image={cfg.collage}
+      />
       <ServiceHero cfg={cfg} />
       <ServiceWhatYouGet cfg={cfg} />
       <ServiceProblems cfg={cfg} />

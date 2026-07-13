@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Badge, PartnerLogo } from '../components/brand.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
+import { Seo } from '../components/Seo.jsx';
 
 const PARTNERS_DATA = [
   {
@@ -214,6 +215,11 @@ function PartnersHonestyNote() {
 export default function Partners() {
   return (
     <SiteShell>
+      <Seo
+        title="Technology partners · YOUKNOW Connect"
+        description="The platforms we stand behind: Braze, OneSignal, InsiderOne, Amperity, Amplitude, DOMO, AppsFlyer, and Branch — recommended only when they genuinely fit."
+        path="/partners"
+      />
       <PageHero
         eyebrow="Our partner stack"
         title={<>The category leaders. <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>And only when they fit.</em></>}

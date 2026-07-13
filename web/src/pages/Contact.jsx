@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { SiteShell, useToast } from '../components/chrome.jsx';
 import { Eyebrow, Btn, BinaryStrip } from '../components/brand.jsx';
+import { Seo } from '../components/Seo.jsx';
 
 function ContactLeft() {
   return (
@@ -264,6 +265,11 @@ function ContactLayout() {
 export default function Contact() {
   return (
     <SiteShell>
+      <Seo
+        title="Contact · YOUKNOW Connect"
+        description="Tell us what's going on with your customer stack. One email, one honest answer within two business days — even if the answer is that you don't need us yet."
+        path="/contact"
+      />
       <ContactLayout />
     </SiteShell>
   );

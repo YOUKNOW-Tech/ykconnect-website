@@ -14,6 +14,7 @@ const NAV = [
   { href: '/services/bi',            label: 'BI',       id: 'bi',   group: 'services' },
   { href: '/services/attribution',   label: 'Attribution', id: 'attribution', group: 'services' },
   { href: '/partners',                label: 'Technology', id: 'partners' },
+  { href: '/blog',                    label: 'Blog',     id: 'blog' },
 ];
 
 function currentIdFromPath(pathname) {
@@ -21,6 +22,7 @@ function currentIdFromPath(pathname) {
   if (pathname === '/about') return 'about';
   if (pathname === '/partners') return 'partners';
   if (pathname === '/contact') return 'contact';
+  if (pathname === '/blog' || pathname.startsWith('/blog/')) return 'blog';
   const m = pathname.match(/^\/services\/(cep|cdp|pa|bi|attribution)$/);
   return m ? m[1] : null;
 }
@@ -71,6 +73,7 @@ function Header() {
     NAV.find(n => n.id === 'about'),
     { href: '#', label: 'Services', id: 'services', isMenu: true },
     NAV.find(n => n.id === 'partners'),
+    NAV.find(n => n.id === 'blog'),
   ];
   const isServicesActive = ['cep', 'cdp', 'pa', 'bi', 'attribution'].includes(current);
 
@@ -215,6 +218,11 @@ function Header() {
           fontSize: 28, color: current === 'partners' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
           textDecoration: 'none', marginTop: 6,
         }}>Technology</Link>
+        <Link to="/blog" onClick={() => setMobileOpen(false)} style={{
+          fontFamily: 'var(--font-display)', fontWeight: 600,
+          fontSize: 28, color: current === 'blog' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
+          textDecoration: 'none', marginTop: 6,
+        }}>Blog</Link>
         <div style={{ marginTop: 18 }}>
           <Btn intent="primary" size="lg" href="/contact">Let's talk →</Btn>
         </div>
@@ -236,6 +244,7 @@ function Footer() {
     { h: 'Company', l: [
       { t: 'About',    href: '/about' },
       { t: 'Technology', href: '/partners' },
+      { t: 'Blog',     href: '/blog' },
       { t: 'Contact',  href: '/contact' },
     ] },
     { h: 'Connect', l: [

@@ -2,6 +2,7 @@
 import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn } from '../components/brand.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
+import { Seo } from '../components/Seo.jsx';
 
 function AboutStory() {
   return (
@@ -258,6 +259,11 @@ function AboutFamily() {
 export default function About() {
   return (
     <SiteShell>
+      <Seo
+        title="About · YOUKNOW Connect"
+        description="Who we are: a small, expert, platform-agnostic customer technology team in South Africa, helping African businesses get real value from engagement, data, and analytics."
+        path="/about"
+      />
       <PageHero
         eyebrow="So YOUKNOW who we are"
         title={<>The platform-agnostic <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>customer technology partner</em> for Africa.</>}

@@ -5,6 +5,7 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { SiteShell } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, BinaryStrip, PartnerLogo, ConnectorLine } from '../components/brand.jsx';
+import { Seo } from '../components/Seo.jsx';
 
 // Her painted eyes, re-rendered inside elliptical windows from small inpainted
 // crops (shades/background removed) so the gaze can slide toward the light
@@ -456,6 +457,11 @@ function CtaNavy() {
 export default function Home() {
   return (
     <SiteShell>
+      <Seo
+        title="YOUKNOW Connect — Turn up your customer data."
+        description="Platform-agnostic customer technology partner for African businesses. Engagement, customer data, analytics, BI, attribution, wired up honestly."
+        path="/"
+      />
       <BroadcastHero />
       <ServicesRail />
       <NoYesList />
