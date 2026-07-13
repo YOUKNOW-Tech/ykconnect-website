@@ -107,7 +107,7 @@ function BroadcastHero() {
             <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap', marginBottom: 30 }}>
               <Eyebrow color="var(--ykc-blue-400)">Customer technology · for Africa</Eyebrow>
               <Sticker bg="var(--ykc-beige-500)" color="var(--ykc-navy-900)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)"
-                onClick={() => showToast('We monitor everything 👀')}>EST. CAPE TOWN</Sticker>
+                onClick={() => showToast('We monitor everything 👀')}>EST. CENTURION</Sticker>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-display)', fontWeight: 800, textTransform: 'uppercase',
@@ -307,7 +307,7 @@ function ServicesRail() {
 
 
 function NoYesList() {
-  const nos = ['Commissions', '40-slide decks', 'Jargon', 'Shelfware', 'Vanishing after go-live'];
+  const nos = ['Biased recommendations', '40-slide decks', 'Jargon', 'Shelfware', 'Vanishing after go-live'];
   const yeses = ['Honest answers', 'Platform-agnostic picks', 'WhatsApp-first thinking', 'POPIA-native setups', 'Sticking around'];
   const item = (t, yes) => (
     <li key={t} style={{

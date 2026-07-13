@@ -1,9 +1,13 @@
 // YOUKNOW Connect — Site chrome
 // Header (active-route aware, mobile drawer), Footer, Toast, SiteShell, PageHero
 
-import { createContext, useContext, useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Btn, BinaryStrip, Eyebrow } from './brand.jsx';
+import { ToastContext, useToast } from '../context/ToastContext.js';
+import { PARTNERS_DATA } from '../data/partners.js';
+
+export { useToast };
 
 const NAV = [
   { href: '/',                       label: 'Home',     id: 'home' },
@@ -20,7 +24,7 @@ const NAV = [
 function currentIdFromPath(pathname) {
   if (pathname === '/') return 'home';
   if (pathname === '/about') return 'about';
-  if (pathname === '/partners') return 'partners';
+  if (pathname === '/partners' || pathname.startsWith('/partners/')) return 'partners';
   if (pathname === '/contact') return 'contact';
   if (pathname === '/blog' || pathname.startsWith('/blog/')) return 'blog';
   const m = pathname.match(/^\/services\/(cep|cdp|pa|bi|attribution)$/);
@@ -43,6 +47,8 @@ function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const servicesRef = useRef(null);
+  const [technologyOpen, setTechnologyOpen] = useState(false);
+  const technologyRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -63,19 +69,32 @@ function Header() {
   }, [servicesOpen]);
 
   useEffect(() => {
+    if (!technologyOpen) return;
+    const onDoc = (e) => {
+      if (technologyRef.current && !technologyRef.current.contains(e.target)) {
+        setTechnologyOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onDoc);
+    return () => document.removeEventListener('mousedown', onDoc);
+  }, [technologyOpen]);
+
+  useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
   const services = NAV.filter(n => n.group === 'services');
+  const partnersFlat = PARTNERS_DATA.flatMap((c) => c.items.map((p) => ({ ...p, cat: c.cat })));
   const topLinks = [
     NAV.find(n => n.id === 'home'),
     NAV.find(n => n.id === 'about'),
     { href: '#', label: 'Services', id: 'services', isMenu: true },
-    NAV.find(n => n.id === 'partners'),
+    { href: '#', label: 'Technology', id: 'technology', isMenu: true },
     NAV.find(n => n.id === 'blog'),
   ];
   const isServicesActive = ['cep', 'cdp', 'pa', 'bi', 'attribution'].includes(current);
+  const isTechnologyActive = current === 'partners';
 
   return (
     <>
@@ -113,12 +132,12 @@ function Header() {
         {/* Desktop nav */}
         <nav className="hide-mobile" style={{ display: 'flex', alignItems: 'baseline', gap: 28 }}>
           {topLinks.map((l) => {
-            if (l.isMenu) {
+            if (l.id === 'services') {
               const active = isServicesActive || servicesOpen;
               return (
                 <div key="services" ref={servicesRef} style={{ position: 'relative' }}>
                   <button
-                    onClick={() => setServicesOpen(o => !o)}
+                    onClick={() => { setServicesOpen(o => !o); setTechnologyOpen(false); }}
                     style={{
                       background: 'transparent', border: 0, cursor: 'pointer', padding: '0 0 4px',
                       lineHeight: 1.25,
@@ -160,6 +179,69 @@ function Header() {
                           {servicesFullLabel(s.id)}
                         </Link>
                       ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            if (l.id === 'technology') {
+              const active = isTechnologyActive || technologyOpen;
+              return (
+                <div key="technology" ref={technologyRef} style={{ position: 'relative' }}>
+                  <button
+                    onClick={() => { setTechnologyOpen(o => !o); setServicesOpen(false); }}
+                    style={{
+                      background: 'transparent', border: 0, cursor: 'pointer', padding: '0 0 4px',
+                      lineHeight: 1.25,
+                      fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 16,
+                      color: active ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      borderBottom: active ? '2px solid var(--ykc-blue-500)' : '2px solid transparent',
+                    }}>
+                    Technology
+                    <span style={{ fontSize: 10, transform: technologyOpen ? 'rotate(180deg)' : 'none', transition: 'transform .15s' }}>▾</span>
+                  </button>
+                  {technologyOpen && (
+                    <div style={{
+                      position: 'absolute', top: 'calc(100% + 14px)', left: -16,
+                      background: 'white', borderRadius: 18,
+                      boxShadow: '0 24px 48px -16px rgba(7,20,57,0.24)',
+                      border: '1px dotted rgba(7,20,57,0.22)',
+                      padding: 12, minWidth: 300,
+                      animation: 'pageFadeIn .18s cubic-bezier(.2,.9,.2,1)',
+                    }}>
+                      {partnersFlat.map((p) => (
+                        <Link key={p.slug} to={`/partners/${p.slug}`} onClick={() => setTechnologyOpen(false)} style={{
+                          display: 'flex', alignItems: 'center', gap: 12,
+                          padding: '10px 12px', borderRadius: 10,
+                          textDecoration: 'none',
+                          color: 'var(--ykc-navy-900)',
+                          background: 'transparent',
+                          fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 15,
+                        }}
+                        onMouseOver={(e) => { e.currentTarget.style.background = 'var(--ykc-beige-300)'; }}
+                        onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                        >
+                          <span style={{
+                            width: 28, height: 28, borderRadius: 8,
+                            background: 'var(--ykc-blue-500)', color: 'white',
+                            fontFamily: "'Press Start 2P', monospace", fontSize: 9,
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                          }}>{p.cat.slice(0, 2).toUpperCase()}</span>
+                          {p.name}
+                        </Link>
+                      ))}
+                      <div style={{ borderTop: '1px dotted rgba(7,20,57,0.16)', margin: '8px 6px' }} />
+                      <Link to="/partners" onClick={() => setTechnologyOpen(false)} style={{
+                        display: 'block', padding: '10px 12px', borderRadius: 10,
+                        textDecoration: 'none', color: 'var(--ykc-blue-500)',
+                        fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 14,
+                      }}
+                      onMouseOver={(e) => { e.currentTarget.style.background = 'var(--ykc-beige-300)'; }}
+                      onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                      >
+                        All technology partners →
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -227,6 +309,14 @@ function Header() {
           fontSize: 28, color: current === 'partners' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
           textDecoration: 'none', marginTop: 6,
         }}>Technology</Link>
+        {partnersFlat.map(p => (
+          <Link key={p.slug} to={`/partners/${p.slug}`} onClick={() => setMobileOpen(false)} style={{
+            fontFamily: 'var(--font-display)', fontWeight: 500,
+            fontSize: 18, color: 'var(--ykc-navy-700)',
+            textDecoration: 'none', paddingLeft: 14,
+            borderLeft: '1.5px dotted rgba(7,20,57,0.2)',
+          }}>{p.name}</Link>
+        ))}
         <Link to="/blog" onClick={() => setMobileOpen(false)} style={{
           fontFamily: 'var(--font-display)', fontWeight: 600,
           fontSize: 28, color: current === 'blog' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
@@ -317,7 +407,7 @@ function Footer() {
           ))}
         </div>
         <div style={{ borderTop: '1px dotted rgba(255,255,255,0.2)', paddingTop: 22, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap', fontSize: 12, color: 'var(--ykc-navy-300)' }}>
-          <span>© 2026 YOUKNOW Connect · A division of the YOUKNOW family · Built in Cape Town</span>
+          <span>© 2026 YOUKNOW Connect · A division of the YOUKNOW family · Built in Centurion</span>
           <span style={{ fontFamily: 'var(--font-handwritten)', fontSize: 17, color: 'var(--ykc-blue-400)' }}>made with &lt;3 in ZA</span>
         </div>
       </div>
@@ -331,14 +421,6 @@ function Footer() {
       `}</style>
     </footer>
   );
-}
-
-/* ============================================================
-   Toast — small floating confirmation, driven by useToast()
-   ============================================================ */
-const ToastContext = createContext(() => {});
-export function useToast() {
-  return useContext(ToastContext);
 }
 
 /* ============================================================

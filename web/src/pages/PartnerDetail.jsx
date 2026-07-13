@@ -50,6 +50,8 @@ export default function PartnerDetail() {
         title={<>{partner.name}</>}
         lead={partner.overview}
         sticker={<Sticker bg="var(--ykc-blue-500)" color="white" rotate={4}>{partner.role}</Sticker>}
+        art={partner.heroImg}
+        artAlt={partner.heroAlt}
       >
         <div style={{ display: 'flex', gap: 12, marginTop: 6, flexWrap: 'wrap', alignItems: 'center' }}>
           <PartnerLogo name={partner.name} height={30} style={{ color: 'var(--ykc-navy-900)', marginRight: 8 }} />

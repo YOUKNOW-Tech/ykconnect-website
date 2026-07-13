@@ -49,7 +49,7 @@ function ContactLeft() {
           }}>◉</span>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ykc-blue-500)' }}>Offices</span>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 17, color: 'var(--ykc-navy-900)' }}>Cape Town &amp; Joburg · South Africa</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 17, color: 'var(--ykc-navy-900)' }}>Centurion, Joburg &amp; Cape Town · South Africa</span>
           </div>
         </div>
         <div style={{ borderTop: '1px dotted rgba(7,20,57,0.2)' }} />

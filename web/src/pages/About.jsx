@@ -132,7 +132,7 @@ function AboutAfrica() {
                 ['Connectivity-aware', 'Designed for users on patchy data, not gigabit fibre.'],
                 ['Mobile-money fluent', 'We know what M-Pesa and friends mean for identity stitching.'],
                 ['Currency- and tax-savvy', 'ZAR, NGN, KES, GHS, and friends. Handled.'],
-                ['On the ground', 'Cape Town based. We come to your office.'],
+                ['On the ground', 'Centurion HQ, with Joburg & Cape Town on the ground.'],
               ].map(([t, b], i) => (
                 <li key={i} style={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: 10, borderTop: '1px dotted rgba(255,255,255,0.22)' }}>
                   <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 14.5, color: 'var(--ykc-blue-400)', letterSpacing: '-0.005em' }}>{t}</span>
@@ -189,6 +189,7 @@ function AboutAfrica() {
                   {[
                     ['Cape Town', 212, 448, 'right'],
                     ['Joburg', 260, 406, 'right'],
+                    ['Centurion', 248, 388, 'left'],
                     ['Lagos', 133, 212, 'right'],
                     ['Accra', 112, 218, 'left'],
                     ['Nairobi', 306, 254, 'right'],
@@ -244,11 +245,17 @@ function AboutFamily() {
         }}>
           A vital division of the broader <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>YOUKNOW family</em>.
         </h2>
-        <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: '0 auto 32px', maxWidth: 660 }}>
+        <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: '0 auto 18px', maxWidth: 660 }}>
           YOUKNOW Connect is the customer technology arm. We sit alongside the rest of the YOUKNOW group, sharing context and clients where it makes sense, and otherwise staying out of each other's way.
         </p>
+        <a href="https://youknow.co.za" target="_blank" rel="noreferrer" style={{
+          display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.18em', textTransform: 'uppercase',
+          color: 'var(--ykc-blue-500)', textDecoration: 'none', marginBottom: 28,
+        }}>
+          Visit youknow.co.za ↗
+        </a>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: 16 }}>
-          <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">Cape Town · ZA</Sticker>
+          <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">Centurion · ZA</Sticker>
           <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm"
             onClick={() => showToast('2013 called. Still proud of us.')}>Since 2013</Sticker>
           <Sticker bg="var(--ykc-navy-900)" color="var(--ykc-blue-400)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)">YOUKNOW &lt;3</Sticker>

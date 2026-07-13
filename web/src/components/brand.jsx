@@ -1,7 +1,19 @@
 // YOUKNOW Connect — Brand Toolkit components
 // Atomic building blocks: ConnectorLine, Eyebrow, Sticker, Badge, Btn, Callout, BinaryStrip, PartnerLogo
 
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useToast } from '../context/ToastContext.js';
+
+const RAGE_CLICK_THRESHOLD = 5;
+const RAGE_CLICK_WINDOW_MS = 1200;
+const RAGE_MESSAGES = [
+  "Okay okay, we hear you 😅",
+  "That sticker's not going anywhere.",
+  "Save some clicks for the internet.",
+  "🫡 message received, loud and clear.",
+  "Feisty. We like it.",
+];
 
 export function ConnectorLine({ color = 'currentColor', heading, style }) {
   const dot = { width: 10, height: 10, borderRadius: '50%', background: color, flexShrink: 0 };
@@ -42,6 +54,11 @@ export function Eyebrow({ children, color = 'var(--ykc-blue-500)', dot = true, w
 }
 
 export function Sticker({ children, bg = 'var(--ykc-blue-500)', color = 'white', rotate = -3, font = 'pixel', size = 'md', shadow = 'var(--ykc-navy-900)', style = {}, onClick }) {
+  const showToast = useToast();
+  const clicksRef = useRef([]);
+  const rageTimeoutRef = useRef(null);
+  const [raging, setRaging] = useState(false);
+
   const sizes = {
     sm: { padding: '7px 12px', fontSize: 9 },
     md: { padding: '10px 16px', fontSize: 11 },
@@ -54,28 +71,50 @@ export function Sticker({ children, bg = 'var(--ykc-blue-500)', color = 'white',
       : font === 'hand'
         ? "var(--font-handwritten)"
         : "var(--font-display)";
-  const Tag = onClick ? 'button' : 'span';
+
+  const handleClick = (e) => {
+    onClick?.(e);
+
+    const now = Date.now();
+    const recent = clicksRef.current.filter((t) => now - t < RAGE_CLICK_WINDOW_MS);
+    recent.push(now);
+    clicksRef.current = recent;
+
+    if (recent.length >= RAGE_CLICK_THRESHOLD) {
+      clicksRef.current = [];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reducedMotion) {
+        setRaging(true);
+        clearTimeout(rageTimeoutRef.current);
+        rageTimeoutRef.current = setTimeout(() => setRaging(false), 420);
+      }
+      showToast(RAGE_MESSAGES[Math.floor(Math.random() * RAGE_MESSAGES.length)]);
+    }
+  };
+
   return (
-    <Tag onClick={onClick} style={{
-      background: bg, color,
-      border: '2px solid white',
-      boxShadow: `6px 6px 0 ${shadow}`,
-      borderRadius: 10,
-      transform: `rotate(${rotate}deg)`,
-      fontFamily: fontStack,
-      letterSpacing: '0.06em',
-      cursor: onClick ? 'pointer' : 'default',
-      transition: 'all .18s cubic-bezier(.34,1.56,.64,1)',
-      display: 'inline-block',
-      lineHeight: 1.1,
-      ...sizes[size], ...style,
-    }}
-    onMouseDown={(e) => e.currentTarget.style.boxShadow = `2px 2px 0 ${shadow}`}
-    onMouseUp={(e) => e.currentTarget.style.boxShadow = `6px 6px 0 ${shadow}`}
-    onMouseLeave={(e) => e.currentTarget.style.boxShadow = `6px 6px 0 ${shadow}`}
-    >
-      {children}
-    </Tag>
+    <span className={raging ? 'sticker-rage-wrap' : undefined} style={{ display: 'inline-block' }}>
+      <button type="button" onClick={handleClick} style={{
+        background: bg, color,
+        border: '2px solid white',
+        boxShadow: `6px 6px 0 ${shadow}`,
+        borderRadius: 10,
+        transform: `rotate(${rotate}deg)`,
+        fontFamily: fontStack,
+        letterSpacing: '0.06em',
+        cursor: 'pointer',
+        transition: 'all .18s cubic-bezier(.34,1.56,.64,1)',
+        display: 'inline-block',
+        lineHeight: 1.1,
+        ...sizes[size], ...style,
+      }}
+      onMouseDown={(e) => e.currentTarget.style.boxShadow = `2px 2px 0 ${shadow}`}
+      onMouseUp={(e) => e.currentTarget.style.boxShadow = `6px 6px 0 ${shadow}`}
+      onMouseLeave={(e) => e.currentTarget.style.boxShadow = `6px 6px 0 ${shadow}`}
+      >
+        {children}
+      </button>
+    </span>
   );
 }
 
