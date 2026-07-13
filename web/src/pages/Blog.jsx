@@ -80,7 +80,7 @@ export default function Blog() {
             <h2 style={{
               fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 2.6vw, 32px)', fontWeight: 700,
               letterSpacing: '-0.02em', margin: 0, color: 'var(--ykc-navy-900)',
-            }}>Partner spotlights</h2>
+            }}>More from the blog</h2>
             <span style={{ flex: 1, borderTop: '1.5px dotted rgba(7,20,57,0.32)' }} />
           </div>
           <div className="blog-grid" style={{

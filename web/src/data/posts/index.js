@@ -8,9 +8,10 @@ import amplitude from './partner-spotlight-amplitude.js';
 import domo from './partner-spotlight-domo.js';
 import appsflyer from './partner-spotlight-appsflyer.js';
 import branch from './partner-spotlight-branch.js';
+import wonga from './success-story-wonga.js';
 
 export const POSTS = [
-  intro, onesignal, insiderone, amperity, amplitude, domo, appsflyer, branch,
+  intro, onesignal, insiderone, amperity, amplitude, domo, appsflyer, branch, wonga,
 ].sort((a, b) => b.date.localeCompare(a.date));
 
 export function getPostBySlug(slug) {
