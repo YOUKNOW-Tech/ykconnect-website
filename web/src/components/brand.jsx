@@ -200,7 +200,6 @@ export function BinaryStrip({ color = 'var(--ykc-blue-400)', size = 11, opacity 
 // Normalised to navy on light backgrounds, white on dark.
 // Falls back to a text wordmark when no logo file exists.
 export const PARTNER_LOGO_SRC = {
-  Braze: '/assets/logos/partners/braze.png',
   Amperity: '/assets/logos/partners/amperity.png',
   OneSignal: '/assets/logos/partners/onesignal.png',
   InsiderOne: '/assets/logos/partners/insiderone.webp',
@@ -211,12 +210,11 @@ export const PARTNER_LOGO_SRC = {
 };
 
 // Each source file has a different amount of baked-in whitespace around the
-// mark (e.g. DOMO's canvas is ~37% ink, Braze's is ~100% ink), so fixing the
-// `height` prop alone makes marks look wildly different sizes even though the
-// image box is identical. This ratio (visible ink height ÷ full canvas
+// mark (e.g. DOMO's canvas is ~37% ink, Amperity's is ~100% ink), so fixing
+// the `height` prop alone makes marks look wildly different sizes even though
+// the image box is identical. This ratio (visible ink height ÷ full canvas
 // height) lets PartnerLogo compensate so every mark reads as the same size.
 const PARTNER_LOGO_INK_RATIO = {
-  Braze: 1,
   Amperity: 1,
   OneSignal: 0.99,
   InsiderOne: 0.93,

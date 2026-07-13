@@ -203,7 +203,7 @@ function BroadcastHero() {
 
 
 const RAIL_SERVICES = [
-  { n: '01', tag: 'CEP',  title: 'Customer Engagement',    desc: 'Real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp.', partners: ['Braze', 'OneSignal', 'InsiderOne'], href: '/services/cep', img: '/assets/collages/customer-engagement-strategy.png', bg: 'var(--ykc-beige-300)' },
+  { n: '01', tag: 'CEP',  title: 'Customer Engagement',    desc: 'Real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp.', partners: ['OneSignal', 'InsiderOne'], href: '/services/cep', img: '/assets/collages/customer-engagement-strategy.png', bg: 'var(--ykc-beige-300)' },
   { n: '02', tag: 'CDP',  title: 'Customer Data Platform', desc: 'Every version of your customer, stitched into one profile your whole business can trust.', partners: ['Amperity'], href: '/services/cdp', img: '/assets/collages/team.png', bg: 'var(--ykc-blue-100)' },
   { n: '03', tag: 'PA',   title: 'Product Analytics',      desc: "The answers GA4 can't give you: funnels, retention and adoption, without waiting on an analyst.", partners: ['Amplitude'], href: '/services/pa', img: '/assets/collages/reading-analytics-insights.png', bg: 'var(--ykc-beige-300)' },
   { n: '04', tag: 'BI',   title: 'Business Intelligence',  desc: 'Dashboards the whole business actually uses, not just the data team.', partners: ['DOMO'], href: '/services/bi', img: '/assets/collages/art-of-reporting.png', bg: 'var(--ykc-blue-100)' },
@@ -419,7 +419,7 @@ function CtaNavy() {
         }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.28em', color: 'var(--ykc-blue-400)', textTransform: 'uppercase' }}>◉ Shipped with</span>
           <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', alignItems: 'center' }}>
-            {['Braze', 'OneSignal', 'InsiderOne', 'Amperity', 'Amplitude', 'DOMO', 'AppsFlyer', 'Branch'].map(p => (
+            {['OneSignal', 'InsiderOne', 'Amperity', 'Amplitude', 'DOMO', 'AppsFlyer', 'Branch'].map(p => (
               <PartnerLogo key={p} name={p} height={20} onDark style={{ color: 'var(--ykc-beige-500)', opacity: 0.85 }} />
             ))}
           </div>

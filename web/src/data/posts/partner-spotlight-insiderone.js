@@ -41,7 +41,7 @@ export default {
     { type: 'h2', text: 'The honest bit' },
     {
       type: 'p',
-      text: 'InsiderOne’s centre of gravity is retail, e-commerce, and travel. If you’re a pure mobile-app business with no meaningful web presence, its breadth is wasted on you, and a mobile-first platform like Braze or OneSignal will serve you better. Breadth also has a cost: the more capabilities you switch on, the more implementation discipline you need. We’d rather activate three things that work than twelve that half-do.',
+      text: 'InsiderOne’s centre of gravity is retail, e-commerce, and travel. If you’re a pure mobile-app business with no meaningful web presence, its breadth is wasted on you, and a mobile-first platform like OneSignal will serve you better. Breadth also has a cost: the more capabilities you switch on, the more implementation discipline you need. We’d rather activate three things that work than twelve that half-do.',
     },
     { type: 'h2', text: 'Who it’s right for' },
     {

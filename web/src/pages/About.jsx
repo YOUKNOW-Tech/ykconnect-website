@@ -32,7 +32,7 @@ function AboutStory() {
               For years, customer technology in Sub-Saharan Africa has worked like this: a global platform appoints a local reseller, the reseller earns margin on every licence they shift, and the recommendation that lands in your inbox happens to match what they sell. Funny, that.
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: 0 }}>
-              We do it the other way around. We partner with the platforms that genuinely lead their categories (Braze, OneSignal, InsiderOne, Amperity, Amplitude, DOMO, AppsFlyer, Branch), but we're paid to solve your problem, not to push a licence. If the right answer is a tool we don't sell, we'll say so. If two of our partners would both work, we'll tell you the trade-offs honestly.
+              We do it the other way around. We partner with the platforms that genuinely lead their categories (OneSignal, InsiderOne, Amperity, Amplitude, DOMO, AppsFlyer, Branch), but we're paid to solve your problem, not to push a licence. If the right answer is a tool we don't sell, we'll say so. If two of our partners would both work, we'll tell you the trade-offs honestly.
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: 0 }}>
               And we stay around after the contract is signed. The relationship starts at go-live, not ends there.

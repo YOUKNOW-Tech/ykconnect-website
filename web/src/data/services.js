@@ -33,14 +33,9 @@ export const CEP = {
     "You've outgrown Firebase notifications but enterprise CEP feels like overkill.",
     'Personalisation today means "Hi {{first_name}}", and you know it shows.',
   ],
-  partnersHeading: "Three platforms. We'll tell you honestly which one fits.",
+  partnersHeading: "Two platforms. We'll tell you honestly which one fits.",
   partnersLead: "Each leads its segment. None is right for everyone. We'll only implement one we think you'll actually use a year from now.",
   partners: [
-    {
-      name: 'Braze', role: 'Enterprise',
-      body: 'Enterprise CEP for B2C companies running sophisticated lifecycle programmes. Real-time orchestration across email, push, SMS, in-app, WhatsApp, and content cards.',
-      bestFor: 'Mid-market to enterprise B2C with a dedicated CRM team.',
-    },
     {
       name: 'OneSignal', role: 'Mid-market',
       body: 'The fast, developer-friendly step up from Firebase. Push, email, SMS, in-app from a single platform, designed for speed to value and predictable pricing.',
@@ -63,14 +58,14 @@ export const CEP = {
     'Stay involved for the post-launch issues nobody warned you about.',
   ],
   quote: {
-    text: "Braze is not the right tool for every client. And we'll tell you that honestly if it isn't.",
+    text: "Not every client needs the same platform. We'll tell you that honestly, even if it means less margin for us.",
     attrib: 'Our CEP partnership rule',
   },
   faqs: [
     { q: 'How is this different from our current email platform?', a: "Email platforms send campaigns. A CEP listens to what each customer does in real time and responds across email, push, SMS, in-app, and WhatsApp. It's the difference between a megaphone and a conversation." },
     { q: 'How long does implementation take?', a: "A focused first use case is usually live in 6 to 10 weeks. We'd rather ship one journey that works than spend six months building an empire nobody uses." },
     { q: 'Do we need clean data first?', a: "You need decent event data, not perfect data. We'll audit what you have in week one and tell you honestly if something needs fixing before go-live." },
-    { q: 'Braze, OneSignal, or InsiderOne, which one?', a: "Depends on your scale, budget, and channels. That's exactly the conversation we'd have first, and we'll recommend the one that fits, not the one with the biggest margin." },
+    { q: 'OneSignal or InsiderOne, which one?', a: "Depends on your scale, budget, and channels. That's exactly the conversation we'd have first, and we'll recommend the one that fits, not the one with the biggest margin." },
   ],
 };
 

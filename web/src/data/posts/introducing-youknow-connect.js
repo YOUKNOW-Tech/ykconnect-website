@@ -40,7 +40,7 @@ export default {
     {
       type: 'list',
       items: [
-        'Customer engagement: real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp, with platforms like Braze, OneSignal, and InsiderOne.',
+        'Customer engagement: real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp, with platforms like OneSignal and InsiderOne.',
         'Customer data: one accurate, trustworthy profile per customer, with Amperity’s AI-driven identity resolution.',
         'Product analytics: funnels, retention, and feature adoption your product team can self-serve, with Amplitude.',
         'Business intelligence: real-time dashboards the whole business can use, not just the data team, with DOMO.',

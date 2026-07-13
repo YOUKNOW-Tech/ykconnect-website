@@ -34,7 +34,7 @@ export default {
         'Neutral attribution across every major ad channel, giving you one version of the truth about where users came from.',
         'Best-in-class fraud protection. Fake installs, click flooding, and SDK spoofing get caught before they burn budget.',
         'Privacy-preserving measurement that still works under SKAdNetwork and AAID restrictions.',
-        'Deep integrations with Amplitude, Braze, OneSignal, and Branch, so attribution feeds your whole stack and not just a dashboard.',
+        'Deep integrations with Amplitude, OneSignal, and Branch, so attribution feeds your whole stack and not just a dashboard.',
         'AppsFlyer Zero, a free entry plan that lets early-stage apps start measuring properly from day one.',
       ],
     },

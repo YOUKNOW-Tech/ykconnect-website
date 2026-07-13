@@ -41,7 +41,7 @@ export default {
     { type: 'h2', text: 'The honest bit' },
     {
       type: 'p',
-      text: 'OneSignal doesn’t match Braze’s personalisation depth, and its segmentation, strong as it is, isn’t built for complex enterprise data models with heavy multi-step journeys. A large enterprise with a dedicated CRM team and sophisticated lifecycle requirements will hit its ceiling. None of that is a flaw. It’s a deliberately simpler tool, and it just has to match the chapter of growth you’re actually in.',
+      text: 'OneSignal’s segmentation, strong as it is, isn’t built for complex enterprise data models with heavy multi-step journeys. A large enterprise with a dedicated CRM team and sophisticated lifecycle requirements will hit its ceiling. None of that is a flaw. It’s a deliberately simpler tool, and it just has to match the chapter of growth you’re actually in.',
     },
     { type: 'h2', text: 'Who it’s right for' },
     {

@@ -13,12 +13,6 @@ const PARTNERS_DATA = [
     cat: 'CEP', catLong: 'Customer Engagement', href: '/services/cep',
     items: [
       {
-        name: 'Braze', role: 'Enterprise CEP',
-        what: 'Enterprise customer engagement platform for B2C companies running sophisticated lifecycle programmes. Real-time orchestration across email, push, SMS, in-app, WhatsApp, and content cards, triggered by behaviour as it happens. Gartner Magic Quadrant Leader.',
-        bestFor: 'Mid-market to enterprise B2C with a dedicated CRM team and a serious retention mandate.',
-        wedoes: ['Implementation', 'Event taxonomy', 'Journey architecture', 'Team training'],
-      },
-      {
         name: 'OneSignal', role: 'Mid-market CEP · Push-first',
         what: 'The fast, developer-friendly step up from Firebase. Best-in-class push performance alongside email, SMS, and in-app from a single platform. Days to implement, predictable pricing, marketer-operable.',
         bestFor: 'Scaling apps and lean teams that need speed to value and predictable cost.',
@@ -217,7 +211,7 @@ export default function Partners() {
     <SiteShell>
       <Seo
         title="Technology partners · YOUKNOW Connect"
-        description="The platforms we stand behind: Braze, OneSignal, InsiderOne, Amperity, Amplitude, DOMO, AppsFlyer, and Branch — recommended only when they genuinely fit."
+        description="The platforms we stand behind: OneSignal, InsiderOne, Amperity, Amplitude, DOMO, AppsFlyer, and Branch — recommended only when they genuinely fit."
         path="/partners"
       />
       <PageHero

@@ -34,7 +34,7 @@ export default {
         'Retention curves, cohort by cohort. The single most important chart most products never produce.',
         'Funnel analysis that shows where users drop, why, and which segments drop worst.',
         'Genuinely self-serve. Product managers build their own queries by week two, no SQL, no tickets.',
-        'Plays well in a stack, with 150+ integrations including Braze, OneSignal, AppsFlyer, and Branch.',
+        'Plays well in a stack, with 150+ integrations including OneSignal, AppsFlyer, and Branch.',
         'Audience sync back to Google Ads and Meta, so behavioural insight closes the loop into acquisition.',
       ],
     },
