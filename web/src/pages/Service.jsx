@@ -4,7 +4,7 @@
 import { Link } from 'react-router-dom';
 import { SiteShell } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, Badge, ConnectorLine, PartnerLogo } from '../components/brand.jsx';
-import { CtaSection } from '../components/CtaSection.jsx';
+import { ContactForm } from '../components/ContactForm.jsx';
 import { Seo } from '../components/Seo.jsx';
 
 function ServiceHero({ cfg }) {
@@ -37,7 +37,7 @@ function ServiceHero({ cfg }) {
               color: 'var(--ykc-navy-700)', maxWidth: 560, margin: 0,
             }}>{cfg.heroLead}</p>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 6, flexWrap: 'wrap' }}>
-              <Btn intent="primary" size="lg" href="/contact">Get connected</Btn>
+              <Btn intent="primary" size="lg" href="#contact-form">Get connected</Btn>
               <Btn intent="ghost" size="lg" href="/partners">See the platforms →</Btn>
             </div>
           </div>
@@ -438,6 +438,35 @@ function ServiceRelated({ cfg }) {
   );
 }
 
+function ServiceContact({ cfg }) {
+  const serviceName = cfg.eyebrow.split(' · ')[0];
+  return (
+    <section id="contact-form" style={{
+      background: 'var(--ykc-blue-500)', padding: '104px 0', position: 'relative', overflow: 'hidden',
+      scrollMarginTop: 100,
+    }}>
+      <img src="/assets/shapes/concentric-circles-beige.png" alt="" style={{ position: 'absolute', top: '-30%', right: '-8%', width: 540, opacity: 0.3, pointerEvents: 'none' }} />
+      <div className="wrap-narrow" style={{ position: 'relative' }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <Eyebrow color="white">Get connected</Eyebrow>
+          <h2 style={{
+            fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(36px, 4.5vw, 60px)',
+            letterSpacing: '-0.03em', lineHeight: 1.02, margin: '14px 0 16px', color: 'white',
+          }}>
+            Talk to us about {serviceName}.
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: 17, lineHeight: 1.55, maxWidth: 560, margin: '0 auto' }}>
+            One email, one honest answer about whether we're the right fit. No 40-slide deck, promise.
+          </p>
+        </div>
+        <div style={{ maxWidth: 640, margin: '0 auto' }}>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function ServicePage({ cfg }) {
   const serviceName = cfg.eyebrow.split(' · ')[0];
   return (
@@ -456,7 +485,7 @@ export default function ServicePage({ cfg }) {
       <ServiceQuote cfg={cfg} />
       <ServiceFaq cfg={cfg} />
       <ServiceRelated cfg={cfg} />
-      <CtaSection />
+      <ServiceContact cfg={cfg} />
     </SiteShell>
   );
 }

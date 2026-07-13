@@ -1,5 +1,5 @@
 // YOUKNOW Connect — About page
-import { SiteShell, PageHero } from '../components/chrome.jsx';
+import { SiteShell, PageHero, useToast } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn } from '../components/brand.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
 import { Seo } from '../components/Seo.jsx';
@@ -229,6 +229,7 @@ function AboutAfrica() {
 }
 
 function AboutFamily() {
+  const showToast = useToast();
   return (
     <section style={{ background: 'var(--ykc-beige-500)', padding: '96px 0' }}>
       <div className="wrap-narrow" style={{ textAlign: 'center' }}>
@@ -248,7 +249,8 @@ function AboutFamily() {
         </p>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: 16 }}>
           <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">Cape Town · ZA</Sticker>
-          <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm">Since 2013</Sticker>
+          <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm"
+            onClick={() => showToast('2013 called. Still proud of us.')}>Since 2013</Sticker>
           <Sticker bg="var(--ykc-navy-900)" color="var(--ykc-blue-400)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)">YOUKNOW &lt;3</Sticker>
         </div>
       </div>

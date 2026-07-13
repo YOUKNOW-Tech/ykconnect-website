@@ -3,7 +3,7 @@
 // NoYesList, MiniSteps, CtaNavy.
 
 import { useState, useRef, useEffect, Fragment } from 'react';
-import { SiteShell } from '../components/chrome.jsx';
+import { SiteShell, useToast } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, BinaryStrip, PartnerLogo, ConnectorLine } from '../components/brand.jsx';
 import { Seo } from '../components/Seo.jsx';
 
@@ -20,6 +20,7 @@ const FIGURE_EYES = [
 const GAZE = { x: 71, y: 46, reach: 7 };
 
 function BroadcastHero() {
+  const showToast = useToast();
   const [m, setM] = useState({ x: 38, y: 42 });
   const lastMove = useRef(0);
   const [reducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -105,7 +106,8 @@ function BroadcastHero() {
           <div>
             <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap', marginBottom: 30 }}>
               <Eyebrow color="var(--ykc-blue-400)">Customer technology · for Africa</Eyebrow>
-              <Sticker bg="var(--ykc-beige-500)" color="var(--ykc-navy-900)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)">EST. CAPE TOWN</Sticker>
+              <Sticker bg="var(--ykc-beige-500)" color="var(--ykc-navy-900)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)"
+                onClick={() => showToast('We monitor everything 👀')}>EST. CAPE TOWN</Sticker>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-display)', fontWeight: 800, textTransform: 'uppercase',

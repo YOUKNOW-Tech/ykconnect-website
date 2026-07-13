@@ -93,13 +93,22 @@ function Header() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         gap: 24,
       }}>
-        <Link to="/" style={{
-          display: 'flex', alignItems: 'center',
-          textDecoration: 'none', minWidth: 0,
-        }}>
-          <img src="/assets/logos/full-logo-blue.png" alt="YOUKNOW Connect"
-            style={{ height: 50, width: 'auto', display: 'block' }} />
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
+          <Link to="/" style={{
+            display: 'flex', alignItems: 'center',
+            textDecoration: 'none', minWidth: 0,
+          }}>
+            <img src="/assets/logos/full-logo-blue.png" alt="YOUKNOW Connect"
+              style={{ height: 50, width: 'auto', display: 'block' }} />
+          </Link>
+          <a href="https://youknow.co.za" target="_blank" rel="noreferrer" className="hide-mobile" style={{
+            fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase',
+            color: 'var(--ykc-navy-500)', textDecoration: 'none', whiteSpace: 'nowrap',
+            borderLeft: '1px dotted rgba(7,20,57,0.32)', paddingLeft: 12,
+          }}>
+            Part of YOUKNOW ↗
+          </a>
+        </div>
 
         {/* Desktop nav */}
         <nav className="hide-mobile" style={{ display: 'flex', alignItems: 'baseline', gap: 28 }}>
@@ -226,6 +235,12 @@ function Header() {
         <div style={{ marginTop: 18 }}>
           <Btn intent="primary" size="lg" href="/contact">Let's talk →</Btn>
         </div>
+        <a href="https://youknow.co.za" target="_blank" rel="noreferrer" onClick={() => setMobileOpen(false)} style={{
+          marginTop: 22, fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase',
+          color: 'var(--ykc-navy-500)', textDecoration: 'none',
+        }}>
+          Part of YOUKNOW ↗
+        </a>
       </div>
     )}
     </>
