@@ -286,8 +286,8 @@ export const ATTR = {
     'Email and push campaigns land users on the app home screen, not the content they clicked on.',
     'Web-to-app and social-to-app flows lose context on every handoff.',
   ],
-  partnersHeading: "Two platforms. Different strengths. We'll pick the right one, or both.",
-  partnersLead: "AppsFlyer leads on attribution breadth, fraud, and neutral measurement. Branch leads on deep linking and link UX. Often you want one. Sometimes you want both. We'll tell you which.",
+  partnersHeading: "Two platforms. Different strengths. We'll pick the right one for you.",
+  partnersLead: "AppsFlyer leads on attribution breadth, fraud, and neutral measurement. Branch leads on deep linking and link UX. You'll need one, never both. We'll tell you which.",
   partners: [
     {
       name: 'AppsFlyer', role: 'MMP',
@@ -304,7 +304,7 @@ export const ATTR = {
   howBody: "Attribution is rarely just attribution. It's the connective tissue between ad spend, engagement, and product analytics. We set up the whole circuit so the numbers in your dashboard match the spend in your card statement.",
   howSteps: [
     'Audit your current attribution setup (or absence of one) and your full paid channel mix.',
-    'Implement the right tool: AppsFlyer, Branch, or both.',
+    'Implement the right tool: AppsFlyer or Branch, whichever fits your acquisition mix.',
     'Configure partner integrations for every ad channel you actually run.',
     'Build attribution windows that match your real user acquisition model.',
     "Set up Protect360's fraud rules and review the first month closely.",
@@ -316,7 +316,7 @@ export const ATTR = {
   },
   faqs: [
     { q: "Why can't we just trust the ad platforms' numbers?", a: "Because every platform claims the same install. Add up Meta, Google, and TikTok's dashboards and you'll have more installs than users. A neutral layer settles the argument." },
-    { q: 'AppsFlyer or Branch?', a: "AppsFlyer leads on measurement, fraud protection, and its own OneLink deep linking; Branch leads on deep-linking depth and link UX. Some businesses need one, some genuinely need both. We'll tell you which you are." },
+    { q: 'AppsFlyer or Branch?', a: "AppsFlyer leads on measurement, fraud protection, and its own OneLink deep linking; Branch leads on deep-linking depth and link UX. You'll need one, not both. We'll tell you which you are." },
     { q: 'Does this still work with iOS privacy changes?', a: 'Yes, differently. SKAdNetwork, privacy-aware modelling, and aggregated measurement are exactly why you want a specialist tool rather than platform dashboards.' },
     { q: 'How much fraud are we actually exposed to?', a: 'In SSA markets we commonly see 15 to 30 percent of paid installs flagged as fraudulent on unprotected accounts. The audit usually pays for itself.' },
   ],

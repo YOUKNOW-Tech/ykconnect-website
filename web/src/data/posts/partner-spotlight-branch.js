@@ -41,11 +41,11 @@ export default {
     { type: 'h2', text: 'The honest bit' },
     {
       type: 'p',
-      text: 'At enterprise scale, AppsFlyer is ahead on attribution breadth and fraud protection. If fraud at volume is your primary concern, that’s the conversation to have first. Branch’s edge is the linking experience and the value it packs at mid-market prices. Some businesses genuinely need both platforms; plenty only need one. We’ll tell you which you are, because we sell both and favour neither.',
+      text: 'At enterprise scale, AppsFlyer is ahead on attribution breadth and fraud protection. If fraud at volume is your primary concern, that’s the conversation to have first. Branch’s edge is the linking experience and the value it packs at mid-market prices. You’ll need one or the other, never both. We’ll tell you which you are, because we sell both and favour neither.',
     },
     {
       type: 'quote',
-      text: 'AppsFlyer leads on measurement and fraud. Branch leads on deep linking. Some clients need one, some need both, and we’ll tell you which you are.',
+      text: 'AppsFlyer leads on measurement and fraud. Branch leads on deep linking. You’ll need one or the other, never both, and we’ll tell you which you are.',
       attrib: 'Our attribution rule of thumb',
     },
     { type: 'h2', text: 'Who it’s right for' },

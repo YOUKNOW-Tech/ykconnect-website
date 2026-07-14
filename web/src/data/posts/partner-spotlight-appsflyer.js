@@ -36,7 +36,7 @@ export default {
         'OneLink deep linking, so ads, emails, and social posts route straight to the right in-app moment instead of dumping users on the home screen.',
         'Privacy-preserving measurement, including data clean rooms, that still works under SKAdNetwork and AAID restrictions.',
         'AI-powered creative optimisation that shows you which specific visuals, copy, and formats are actually driving conversions.',
-        'Deep integrations with Amplitude, OneSignal, and Branch, so attribution feeds your whole stack and not just a dashboard.',
+        'Deep integrations with Amplitude and OneSignal, so attribution feeds your whole stack and not just a dashboard.',
         'AppsFlyer Zero, a free entry plan that lets early-stage apps start measuring properly from day one.',
       ],
     },

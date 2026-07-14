@@ -44,7 +44,7 @@ export default {
         'Customer data: one accurate, trustworthy profile per customer, with Amperity’s AI-driven identity resolution.',
         'Product analytics: funnels, retention, and feature adoption your product team can self-serve, with Amplitude.',
         'Business intelligence: real-time dashboards the whole business can use, not just the data team, with DOMO.',
-        'Mobile attribution: neutral measurement of where your users really came from, with AppsFlyer and Branch.',
+        'Mobile attribution: neutral measurement of where your users really came from, with AppsFlyer or Branch.',
       ],
     },
     {
