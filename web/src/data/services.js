@@ -270,8 +270,8 @@ export const ATTR = {
     lead: "Every ad platform thinks it deserves credit for the install. Without a neutral MMP, you're paying three platforms for one user. We fix that.",
     items: [
       { t: 'Neutral install attribution', b: 'A measurement layer above Meta, Google, TikTok, ASA, and everyone else.' },
-      { t: 'Fraud protection', b: 'Fake installs, click flooding, SDK spoofing, all caught before they cost you budget.' },
-      { t: 'Deep linking that lands', b: 'Email-to-app, web-to-app, social-to-app. Users arrive where they should, not the home screen.' },
+      { t: 'Fraud protection', b: 'Protect360 catches fake installs, click flooding, and SDK spoofing in real time, before they cost you budget.' },
+      { t: 'Deep linking that lands', b: "OneLink and Branch both get email-to-app, web-to-app, and social-to-app right. Users arrive where they should, not the home screen." },
       { t: 'Connected to your stack', b: 'Attribution feeds your CEP and product analytics, not just your dashboard.' },
       { t: 'iOS + Android post-IDFA', b: 'Privacy-preserving measurement built for SKAdNetwork and AAID-restricted reality.' },
       { t: 'Honest cost per real install', b: 'What was that channel actually worth? Now you can answer.' },
@@ -291,7 +291,7 @@ export const ATTR = {
   partners: [
     {
       name: 'AppsFlyer', role: 'MMP',
-      body: 'The market-leading mobile measurement partner. Neutral measurement layer above every major ad channel, industry-best fraud protection, and a privacy-preserving framework built for the iOS/Android era.',
+      body: 'The market-leading mobile measurement partner. Neutral measurement layer above every major ad channel, Protect360 fraud protection, OneLink deep linking, and a privacy-preserving framework built for the iOS/Android era.',
       bestFor: 'Apps running paid acquisition at scale across multiple channels, particularly where fraud is a concern.',
     },
     {
@@ -307,7 +307,7 @@ export const ATTR = {
     'Implement the right tool: AppsFlyer, Branch, or both.',
     'Configure partner integrations for every ad channel you actually run.',
     'Build attribution windows that match your real user acquisition model.',
-    'Set up fraud protection rules and review the first month closely.',
+    "Set up Protect360's fraud rules and review the first month closely.",
     'Connect attribution data into your CEP and PA tools so it informs retention, not just acquisition.',
   ],
   quote: {
@@ -316,7 +316,7 @@ export const ATTR = {
   },
   faqs: [
     { q: "Why can't we just trust the ad platforms' numbers?", a: "Because every platform claims the same install. Add up Meta, Google, and TikTok's dashboards and you'll have more installs than users. A neutral layer settles the argument." },
-    { q: 'AppsFlyer or Branch?', a: "AppsFlyer leads on measurement and fraud protection, Branch leads on deep linking. Some businesses need one, some genuinely need both. We'll tell you which you are." },
+    { q: 'AppsFlyer or Branch?', a: "AppsFlyer leads on measurement, fraud protection, and its own OneLink deep linking; Branch leads on deep-linking depth and link UX. Some businesses need one, some genuinely need both. We'll tell you which you are." },
     { q: 'Does this still work with iOS privacy changes?', a: 'Yes, differently. SKAdNetwork, privacy-aware modelling, and aggregated measurement are exactly why you want a specialist tool rather than platform dashboards.' },
     { q: 'How much fraud are we actually exposed to?', a: 'In SSA markets we commonly see 15 to 30 percent of paid installs flagged as fraudulent on unprotected accounts. The audit usually pays for itself.' },
   ],
