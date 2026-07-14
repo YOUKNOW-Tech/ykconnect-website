@@ -97,7 +97,7 @@ function PartnersByCategory() {
                   fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700,
                   letterSpacing: '0.14em', textTransform: 'uppercase',
                   color: 'var(--ykc-navy-500)', whiteSpace: 'nowrap',
-                }}>Also implement &amp; support</span>
+                }}>We also implement &amp; support</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 26, flexWrap: 'wrap' }}>
                   {cat.secondary.map((name) => (
                     <PartnerLogo key={name} name={name} height={16} style={{ color: 'var(--ykc-navy-700)', opacity: 0.6 }} />
