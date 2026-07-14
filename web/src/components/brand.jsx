@@ -247,6 +247,10 @@ export const PARTNER_LOGO_SRC = {
   AppsFlyer: '/assets/logos/partners/appsflyer.png',
   Branch: '/assets/logos/partners/branch.png',
   Braze: '/assets/logos/partners/braze.png',
+  'Customer.io': '/assets/logos/partners/customerio.svg',
+  Iterable: '/assets/logos/partners/iterable.svg',
+  Moengage: '/assets/logos/partners/moengage.svg',
+  Mixpanel: '/assets/logos/partners/mixpanel.svg',
 };
 
 // Each source file has a different amount of baked-in whitespace around the
