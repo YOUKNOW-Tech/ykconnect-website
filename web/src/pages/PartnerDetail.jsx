@@ -1,7 +1,8 @@
 // YOUKNOW Connect — Partner detail page (/partners/:slug)
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, Badge, PartnerLogo, ConnectorLine } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
 import { Seo } from '../components/Seo.jsx';
 import { getPartnerBySlug, getPartnersByCategory } from '../data/partners.js';
@@ -24,7 +25,7 @@ function NotFound() {
           <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ykc-navy-700)', margin: '0 0 28px' }}>
             The link may be old, or the partner may have moved. The rest of our partner stack is very much alive.
           </p>
-          <Btn intent="primary" size="lg" href="/partners">Back to our partners</Btn>
+          <Btn intent="primary" size="lg" href="/partners" trackProps={{ location: 'partner_detail_404' }}>Back to our partners</Btn>
         </div>
       </section>
     </SiteShell>
@@ -55,8 +56,8 @@ export default function PartnerDetail() {
       >
         <div style={{ display: 'flex', gap: 12, marginTop: 6, flexWrap: 'wrap', alignItems: 'center' }}>
           <PartnerLogo name={partner.name} height={30} style={{ color: 'var(--ykc-navy-900)', marginRight: 8 }} />
-          <Btn intent="primary" size="lg" href="/contact">Get connected</Btn>
-          <Btn intent="ghost" size="lg" href={partner.serviceHref}>See the {partner.catLong} service →</Btn>
+          <Btn intent="primary" size="lg" href="/contact" trackProps={{ location: 'partner_detail_hero' }}>Get connected</Btn>
+          <Btn intent="ghost" size="lg" href={partner.serviceHref} trackProps={{ location: 'partner_detail_hero' }}>See the {partner.catLong} service →</Btn>
         </div>
       </PageHero>
 
@@ -113,7 +114,7 @@ export default function PartnerDetail() {
               gap: 16, marginTop: 36,
             }} className="pd-related-grid">
               {others.map((p) => (
-                <Link key={p.slug} to={`/partners/${p.slug}`} style={{
+                <TrackedLink key={p.slug} to={`/partners/${p.slug}`} trackLabel={p.name} trackProps={{ location: 'related_partner_card' }} style={{
                   display: 'block', padding: '24px 26px', borderRadius: 18,
                   background: 'var(--ykc-beige-300)', border: '1.5px solid transparent',
                   textDecoration: 'none', color: 'var(--ykc-navy-900)',
@@ -126,7 +127,7 @@ export default function PartnerDetail() {
                   <div style={{ marginBottom: 8 }}><Badge intent="blue-tint">{p.role}</Badge></div>
                   <p style={{ fontSize: 13.5, lineHeight: 1.55, color: 'var(--ykc-navy-700)', margin: 0 }}>{p.bestFor}</p>
                   <div style={{ marginTop: 14, fontSize: 13, color: 'var(--ykc-blue-500)', fontWeight: 600 }}>Learn more →</div>
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>

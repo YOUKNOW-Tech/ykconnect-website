@@ -1,6 +1,7 @@
 // YOUKNOW Connect — Contact page
 import { SiteShell } from '../components/chrome.jsx';
 import { Eyebrow, BinaryStrip } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { ContactForm } from '../components/ContactForm.jsx';
 import { Seo } from '../components/Seo.jsx';
 
@@ -36,7 +37,7 @@ function ContactLeft() {
           }}>@</span>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--ykc-blue-500)' }}>Email</span>
-            <a href="mailto:connect@youknow.co.za" style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 17, color: 'var(--ykc-navy-900)', textDecoration: 'none' }}>connect@youknow.co.za</a>
+            <TrackedLink to="mailto:connect@youknow.co.za" trackProps={{ location: 'contact_page_sidebar' }} style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 17, color: 'var(--ykc-navy-900)', textDecoration: 'none' }}>connect@youknow.co.za</TrackedLink>
           </div>
         </div>
         <div style={{ borderTop: '1px dotted rgba(7,20,57,0.2)' }} />

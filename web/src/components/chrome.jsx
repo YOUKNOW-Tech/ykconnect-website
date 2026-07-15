@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Btn, BinaryStrip, Eyebrow } from './brand.jsx';
+import { TrackedLink } from './TrackedLink.jsx';
 import { ToastContext, useToast } from '../context/ToastContext.js';
 import { PARTNERS_DATA } from '../data/partners.js';
 
@@ -120,13 +121,13 @@ function Header() {
             <img src="/assets/logos/full-logo-blue.png" alt="YOUKNOW Connect"
               style={{ height: 50, width: 'auto', display: 'block' }} />
           </Link>
-          <a href="https://youknow.co.za" target="_blank" rel="noreferrer" className="hide-mobile" style={{
+          <TrackedLink to="https://youknow.co.za" target="_blank" rel="noreferrer" eventName="Nav Link Clicked" trackProps={{ location: 'header' }} className="hide-mobile" style={{
             fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase',
             color: 'var(--ykc-navy-500)', textDecoration: 'none', whiteSpace: 'nowrap',
             borderLeft: '1px dotted rgba(7,20,57,0.32)', paddingLeft: 12,
           }}>
             Part of YOUKNOW ↗
-          </a>
+          </TrackedLink>
         </div>
 
         {/* Desktop nav */}
@@ -159,7 +160,7 @@ function Header() {
                       animation: 'pageFadeIn .18s cubic-bezier(.2,.9,.2,1)',
                     }}>
                       {services.map((s) => (
-                        <Link key={s.id} to={s.href} onClick={() => setServicesOpen(false)} style={{
+                        <TrackedLink key={s.id} to={s.href} trackLabel={servicesFullLabel(s.id)} eventName="Nav Link Clicked" trackProps={{ location: 'header', nav_group: 'services' }} onClick={() => setServicesOpen(false)} style={{
                           display: 'flex', alignItems: 'center', gap: 12,
                           padding: '10px 12px', borderRadius: 10,
                           textDecoration: 'none',
@@ -177,7 +178,7 @@ function Header() {
                             display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                           }}>{s.label.slice(0, 2).toUpperCase()}</span>
                           {servicesFullLabel(s.id)}
-                        </Link>
+                        </TrackedLink>
                       ))}
                     </div>
                   )}
@@ -211,7 +212,7 @@ function Header() {
                       animation: 'pageFadeIn .18s cubic-bezier(.2,.9,.2,1)',
                     }}>
                       {partnersFlat.map((p) => (
-                        <Link key={p.slug} to={`/partners/${p.slug}`} onClick={() => setTechnologyOpen(false)} style={{
+                        <TrackedLink key={p.slug} to={`/partners/${p.slug}`} trackLabel={p.name} eventName="Nav Link Clicked" trackProps={{ location: 'header', nav_group: 'technology' }} onClick={() => setTechnologyOpen(false)} style={{
                           display: 'flex', alignItems: 'center', gap: 12,
                           padding: '10px 12px', borderRadius: 10,
                           textDecoration: 'none',
@@ -229,10 +230,10 @@ function Header() {
                             display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                           }}>{p.cat.slice(0, 2).toUpperCase()}</span>
                           {p.name}
-                        </Link>
+                        </TrackedLink>
                       ))}
                       <div style={{ borderTop: '1px dotted rgba(7,20,57,0.16)', margin: '8px 6px' }} />
-                      <Link to="/partners" onClick={() => setTechnologyOpen(false)} style={{
+                      <TrackedLink to="/partners" eventName="Nav Link Clicked" trackProps={{ location: 'header', nav_group: 'technology' }} onClick={() => setTechnologyOpen(false)} style={{
                         display: 'block', padding: '10px 12px', borderRadius: 10,
                         textDecoration: 'none', color: 'var(--ykc-blue-500)',
                         fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 14,
@@ -241,7 +242,7 @@ function Header() {
                       onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; }}
                       >
                         All technology partners →
-                      </Link>
+                      </TrackedLink>
                     </div>
                   )}
                 </div>
@@ -249,16 +250,16 @@ function Header() {
             }
             const isActive = current === l.id;
             return (
-              <Link key={l.id} to={l.href} style={{
+              <TrackedLink key={l.id} to={l.href} eventName="Nav Link Clicked" trackProps={{ location: 'header' }} style={{
                 fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 16,
                 lineHeight: 1.25,
                 color: isActive ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
                 textDecoration: 'none', paddingBottom: 4,
                 borderBottom: isActive ? '2px solid var(--ykc-blue-500)' : '2px solid transparent',
-              }}>{l.label}</Link>
+              }}>{l.label}</TrackedLink>
             );
           })}
-          <Btn intent="primary" size="sm" href="/contact">Let's talk</Btn>
+          <Btn intent="primary" size="sm" href="/contact" trackProps={{ location: 'header' }}>Let's talk</Btn>
         </nav>
 
         {/* Mobile burger */}
@@ -289,48 +290,48 @@ function Header() {
           NAV.find(n => n.id === 'home'),
           NAV.find(n => n.id === 'about'),
         ].map(l => (
-          <Link key={l.id} to={l.href} onClick={() => setMobileOpen(false)} style={{
+          <TrackedLink key={l.id} to={l.href} eventName="Nav Link Clicked" trackProps={{ location: 'header_mobile' }} onClick={() => setMobileOpen(false)} style={{
             fontFamily: 'var(--font-display)', fontWeight: 600,
             fontSize: 28, color: current === l.id ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
             textDecoration: 'none', letterSpacing: '-0.01em',
-          }}>{l.label}</Link>
+          }}>{l.label}</TrackedLink>
         ))}
         <div style={{ marginTop: 6, marginBottom: 2, fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ykc-blue-500)', letterSpacing: '0.28em', textTransform: 'uppercase' }}>Services</div>
         {services.map(s => (
-          <Link key={s.id} to={s.href} onClick={() => setMobileOpen(false)} style={{
+          <TrackedLink key={s.id} to={s.href} trackLabel={servicesFullLabel(s.id)} eventName="Nav Link Clicked" trackProps={{ location: 'header_mobile', nav_group: 'services' }} onClick={() => setMobileOpen(false)} style={{
             fontFamily: 'var(--font-display)', fontWeight: 500,
             fontSize: 22, color: current === s.id ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-700)',
             textDecoration: 'none', paddingLeft: 14,
             borderLeft: '1.5px dotted rgba(7,20,57,0.2)',
-          }}>{servicesFullLabel(s.id)}</Link>
+          }}>{servicesFullLabel(s.id)}</TrackedLink>
         ))}
-        <Link to="/partners" onClick={() => setMobileOpen(false)} style={{
+        <TrackedLink to="/partners" eventName="Nav Link Clicked" trackProps={{ location: 'header_mobile' }} onClick={() => setMobileOpen(false)} style={{
           fontFamily: 'var(--font-display)', fontWeight: 600,
           fontSize: 28, color: current === 'partners' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
           textDecoration: 'none', marginTop: 6,
-        }}>Technology</Link>
+        }}>Technology</TrackedLink>
         {partnersFlat.map(p => (
-          <Link key={p.slug} to={`/partners/${p.slug}`} onClick={() => setMobileOpen(false)} style={{
+          <TrackedLink key={p.slug} to={`/partners/${p.slug}`} trackLabel={p.name} eventName="Nav Link Clicked" trackProps={{ location: 'header_mobile', nav_group: 'technology' }} onClick={() => setMobileOpen(false)} style={{
             fontFamily: 'var(--font-display)', fontWeight: 500,
             fontSize: 18, color: 'var(--ykc-navy-700)',
             textDecoration: 'none', paddingLeft: 14,
             borderLeft: '1.5px dotted rgba(7,20,57,0.2)',
-          }}>{p.name}</Link>
+          }}>{p.name}</TrackedLink>
         ))}
-        <Link to="/blog" onClick={() => setMobileOpen(false)} style={{
+        <TrackedLink to="/blog" eventName="Nav Link Clicked" trackProps={{ location: 'header_mobile' }} onClick={() => setMobileOpen(false)} style={{
           fontFamily: 'var(--font-display)', fontWeight: 600,
           fontSize: 28, color: current === 'blog' ? 'var(--ykc-blue-500)' : 'var(--ykc-navy-900)',
           textDecoration: 'none', marginTop: 6,
-        }}>Blog</Link>
+        }}>Blog</TrackedLink>
         <div style={{ marginTop: 18 }}>
-          <Btn intent="primary" size="lg" href="/contact">Let's talk →</Btn>
+          <Btn intent="primary" size="lg" href="/contact" trackProps={{ location: 'header_mobile' }}>Let's talk →</Btn>
         </div>
-        <a href="https://youknow.co.za" target="_blank" rel="noreferrer" onClick={() => setMobileOpen(false)} style={{
+        <TrackedLink to="https://youknow.co.za" target="_blank" rel="noreferrer" eventName="Nav Link Clicked" trackProps={{ location: 'header_mobile' }} onClick={() => setMobileOpen(false)} style={{
           marginTop: 22, fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase',
           color: 'var(--ykc-navy-500)', textDecoration: 'none',
         }}>
           Part of YOUKNOW ↗
-        </a>
+        </TrackedLink>
       </div>
     )}
     </>
@@ -385,21 +386,13 @@ function Footer() {
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {c.l.map((item) => (
                   <li key={item.t}>
-                    {item.href.startsWith('/') ? (
-                      <Link to={item.href}
-                        style={{ color: 'var(--ykc-beige-500)', textDecoration: 'none', fontFamily: 'var(--font-body)', fontSize: 14, transition: 'opacity .15s' }}
-                        onMouseOver={(e) => e.currentTarget.style.opacity = 0.7}
-                        onMouseOut={(e) => e.currentTarget.style.opacity = 1}>
-                        {item.t}
-                      </Link>
-                    ) : (
-                      <a href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noreferrer' : undefined}
-                        style={{ color: 'var(--ykc-beige-500)', textDecoration: 'none', fontFamily: 'var(--font-body)', fontSize: 14, transition: 'opacity .15s' }}
-                        onMouseOver={(e) => e.currentTarget.style.opacity = 0.7}
-                        onMouseOut={(e) => e.currentTarget.style.opacity = 1}>
-                        {item.t}
-                      </a>
-                    )}
+                    <TrackedLink to={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noreferrer' : undefined}
+                      eventName="Nav Link Clicked" trackProps={{ location: 'footer', nav_group: c.h.toLowerCase() }}
+                      style={{ color: 'var(--ykc-beige-500)', textDecoration: 'none', fontFamily: 'var(--font-body)', fontSize: 14, transition: 'opacity .15s' }}
+                      onMouseOver={(e) => e.currentTarget.style.opacity = 0.7}
+                      onMouseOut={(e) => e.currentTarget.style.opacity = 1}>
+                      {item.t}
+                    </TrackedLink>
                   </li>
                 ))}
               </ul>

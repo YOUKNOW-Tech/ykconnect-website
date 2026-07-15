@@ -1,7 +1,7 @@
 // YOUKNOW Connect — Blog index
-import { Link } from 'react-router-dom';
 import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Badge, Sticker } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
 import { Seo } from '../components/Seo.jsx';
 import { PostCard, formatPostDate } from '../components/PostCard.jsx';
@@ -12,7 +12,7 @@ const FEATURED_SLUG = 'introducing-youknow-connect';
 
 function FeaturedPost({ post }) {
   return (
-    <Link to={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+    <TrackedLink to={`/blog/${post.slug}`} trackLabel={post.title} trackProps={{ location: 'featured_post_card' }} style={{ textDecoration: 'none', display: 'block' }}>
       <article className="blog-featured" style={{
         background: 'var(--ykc-navy-900)', borderRadius: 24, overflow: 'hidden',
         display: 'grid', gridTemplateColumns: '1.4fr 1fr', minHeight: 300,
@@ -41,7 +41,7 @@ function FeaturedPost({ post }) {
           <img src={post.hero} alt={post.heroAlt} style={{ maxHeight: '78%', maxWidth: '80%', objectFit: 'contain', position: 'relative' }} />
         </div>
       </article>
-    </Link>
+    </TrackedLink>
   );
 }
 

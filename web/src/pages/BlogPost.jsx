@@ -75,7 +75,7 @@ function Block({ block }) {
             fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 18, lineHeight: 1.4,
             color: 'var(--ykc-beige-500)', margin: 0, flex: '1 1 280px',
           }}>{block.text}</p>
-          <Btn intent="on-dark" size="md" href={block.href}>{block.label} →</Btn>
+          <Btn intent="on-dark" size="md" href={block.href} trackProps={{ location: 'blog_inline_cta' }}>{block.label} →</Btn>
         </div>
       );
     default:
@@ -101,7 +101,7 @@ function NotFound() {
           <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ykc-navy-700)', margin: '0 0 28px' }}>
             The link may be old, or the post may have moved. The rest of the blog is very much alive, though.
           </p>
-          <Btn intent="primary" size="lg" href="/blog">Back to the blog</Btn>
+          <Btn intent="primary" size="lg" href="/blog" trackProps={{ location: 'blog_post_404' }}>Back to the blog</Btn>
         </div>
       </section>
     </SiteShell>
@@ -187,12 +187,12 @@ export default function BlogPost() {
             display: 'flex', flexWrap: 'wrap', gap: 12,
           }}>
             {post.serviceHref && (
-              <Btn intent="primary" size="md" href={post.serviceHref}>
+              <Btn intent="primary" size="md" href={post.serviceHref} trackProps={{ location: 'blog_post_footer' }}>
                 Explore {post.serviceName || 'the service'} →
               </Btn>
             )}
-            <Btn intent="secondary" size="md" href="/partners">Our technology partners</Btn>
-            <Btn intent="ghost" size="md" href="/blog">← All posts</Btn>
+            <Btn intent="secondary" size="md" href="/partners" trackProps={{ location: 'blog_post_footer' }}>Our technology partners</Btn>
+            <Btn intent="ghost" size="md" href="/blog" trackProps={{ location: 'blog_post_footer' }}>← All posts</Btn>
           </div>
         </div>
       </section>

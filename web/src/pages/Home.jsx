@@ -5,6 +5,7 @@
 import { useState, useRef, useEffect, Fragment } from 'react';
 import { SiteShell, useToast } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, BinaryStrip, PartnerLogo, ConnectorLine } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { Seo } from '../components/Seo.jsx';
 
 // Her painted eyes, re-rendered inside elliptical windows from small inpainted
@@ -130,8 +131,8 @@ function BroadcastHero() {
               tell you when you don't need something.
             </p>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', margin: '30px 0 0' }}>
-              <Btn intent="on-dark" size="lg" href="/contact">Let's connect</Btn>
-              <Btn intent="ghost-light" size="lg" href="#chapters">Browse the chapters ↓</Btn>
+              <Btn intent="on-dark" size="lg" href="/contact" trackProps={{ location: 'home_hero' }}>Let's connect</Btn>
+              <Btn intent="ghost-light" size="lg" href="#chapters" trackProps={{ location: 'home_hero' }}>Browse the chapters ↓</Btn>
             </div>
             <div style={{ marginTop: 26, display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
               <BinaryStrip color="var(--ykc-blue-400)" size={11} opacity={0.8} />
@@ -255,7 +256,7 @@ function ServicesRail() {
         scrollbarWidth: 'none',
       }}>
         {RAIL_SERVICES.map((s) => (
-          <a key={s.tag} href={s.href} style={{
+          <TrackedLink key={s.tag} to={s.href} trackLabel={s.title} trackProps={{ location: 'service_rail' }} style={{
             flex: '0 0 auto', width: 'min(420px, 82vw)', scrollSnapAlign: 'start',
             background: s.bg, borderRadius: 22, padding: '30px 28px 28px',
             border: '2px solid var(--ykc-navy-900)',
@@ -290,7 +291,7 @@ function ServicesRail() {
               </div>
               <span style={{ fontSize: 18 }}>↗</span>
             </div>
-          </a>
+          </TrackedLink>
         ))}
       </div>
       <div className="wrap-wide" style={{ marginTop: 8 }}>
@@ -443,8 +444,8 @@ function CtaNavy() {
           No 40-slide deck, promise.
         </p>
         <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap' }}>
-          <Btn intent="on-dark" size="lg" href="/contact">Start a conversation</Btn>
-          <Btn intent="ghost-light" size="lg" href="mailto:connect@youknow.co.za">connect@youknow.co.za →</Btn>
+          <Btn intent="on-dark" size="lg" href="/contact" trackProps={{ location: 'home_cta' }}>Start a conversation</Btn>
+          <Btn intent="ghost-light" size="lg" href="mailto:connect@youknow.co.za" trackProps={{ location: 'home_cta' }}>connect@youknow.co.za →</Btn>
         </div>
         <div style={{ marginTop: 40, fontFamily: 'var(--font-handwritten)', color: 'var(--ykc-blue-400)', fontSize: 24, transform: 'rotate(-2deg)', display: 'inline-block' }}>
           YOUKNOW &lt;3

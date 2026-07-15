@@ -1,6 +1,7 @@
 // YOUKNOW Connect — About page
 import { SiteShell, PageHero, useToast } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
 import { Seo } from '../components/Seo.jsx';
 
@@ -248,12 +249,12 @@ function AboutFamily() {
         <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: '0 auto 18px', maxWidth: 660 }}>
           YOUKNOW Connect is the customer technology arm. We sit alongside the rest of the YOUKNOW group, sharing context and clients where it makes sense, and otherwise staying out of each other's way.
         </p>
-        <a href="https://youknow.co.za" target="_blank" rel="noreferrer" style={{
+        <TrackedLink to="https://youknow.co.za" target="_blank" rel="noreferrer" trackProps={{ location: 'about_family' }} style={{
           display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.18em', textTransform: 'uppercase',
           color: 'var(--ykc-blue-500)', textDecoration: 'none', marginBottom: 28,
         }}>
           Visit youknow.co.za ↗
-        </a>
+        </TrackedLink>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: 16 }}>
           <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">Centurion · ZA</Sticker>
           <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm"
@@ -282,8 +283,8 @@ export default function About() {
         artAlt="Collage, globe showing the African continent"
       >
         <div style={{ display: 'flex', gap: 12, marginTop: 6, flexWrap: 'wrap' }}>
-          <Btn intent="primary" size="lg" href="/contact">Let's talk</Btn>
-          <Btn intent="ghost" size="lg" href="/partners">Our partners →</Btn>
+          <Btn intent="primary" size="lg" href="/contact" trackProps={{ location: 'about_hero' }}>Let's talk</Btn>
+          <Btn intent="ghost" size="lg" href="/partners" trackProps={{ location: 'about_hero' }}>Our partners →</Btn>
         </div>
       </PageHero>
 

@@ -1,9 +1,9 @@
 // YOUKNOW Connect — shared service-page template
 // Reused by all 5 service domains (CEP, CDP, PA, BI, Attribution). Pass a cfg
 // object (see src/data/services.js) describing the domain.
-import { Link } from 'react-router-dom';
 import { SiteShell } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, Badge, ConnectorLine, PartnerLogo } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { ContactForm } from '../components/ContactForm.jsx';
 import { Seo } from '../components/Seo.jsx';
 
@@ -37,8 +37,8 @@ function ServiceHero({ cfg }) {
               color: 'var(--ykc-navy-700)', maxWidth: 560, margin: 0,
             }}>{cfg.heroLead}</p>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 6, flexWrap: 'wrap' }}>
-              <Btn intent="primary" size="lg" href="#contact-form">Get connected</Btn>
-              <Btn intent="ghost" size="lg" href="/partners">See the platforms →</Btn>
+              <Btn intent="primary" size="lg" href="#contact-form" trackProps={{ location: 'service_hero' }}>Get connected</Btn>
+              <Btn intent="ghost" size="lg" href="/partners" trackProps={{ location: 'service_hero' }}>See the platforms →</Btn>
             </div>
           </div>
 
@@ -404,7 +404,7 @@ function ServiceRelated({ cfg }) {
           display: 'grid', gridTemplateColumns: `repeat(${Math.min(others.length, 4)}, 1fr)`, gap: 16, marginTop: 36,
         }} className="svc-related-grid">
           {others.map(s => (
-            <Link key={s.id} to={s.href} style={{
+            <TrackedLink key={s.id} to={s.href} trackLabel={s.label} trackProps={{ location: 'related_service_card' }} style={{
               display: 'block', padding: '24px 26px', borderRadius: 18,
               background: 'var(--ykc-beige-300)', border: '1.5px solid transparent',
               textDecoration: 'none', color: 'var(--ykc-navy-900)',
@@ -422,7 +422,7 @@ function ServiceRelated({ cfg }) {
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 19, fontWeight: 700, letterSpacing: '-0.01em', margin: '0 0 6px' }}>{s.label}</h3>
               <p style={{ fontSize: 13.5, lineHeight: 1.55, color: 'var(--ykc-navy-700)', margin: 0 }}>{s.body}</p>
               <div style={{ marginTop: 14, fontSize: 13, color: 'var(--ykc-blue-500)', fontWeight: 600 }}>Explore →</div>
-            </Link>
+            </TrackedLink>
           ))}
         </div>
       </div>
@@ -460,7 +460,7 @@ function ServiceContact({ cfg }) {
           </p>
         </div>
         <div style={{ maxWidth: 640, margin: '0 auto' }}>
-          <ContactForm />
+          <ContactForm formLocation="service_page" serviceId={cfg.id} />
         </div>
       </div>
     </section>

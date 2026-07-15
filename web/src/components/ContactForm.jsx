@@ -1,8 +1,15 @@
 // YOUKNOW Connect — shared contact form, used on the Contact page and
 // embedded at the bottom of every service page.
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useToast } from './chrome.jsx';
 import { Eyebrow, Btn } from './brand.jsx';
+import { trackEvent } from '../lib/analytics.js';
+
+function messageLengthBucket(length) {
+  if (length < 80) return 'short';
+  if (length < 300) return 'medium';
+  return 'long';
+}
 
 const INTENTS = [
   { v: 'optimize', l: 'Optimize current tools' },
@@ -12,12 +19,13 @@ const INTENTS = [
   { v: 'engagement', l: 'Customer engagement support' },
 ];
 
-export function ContactForm() {
+export function ContactForm({ formLocation = 'contact_page', serviceId = null } = {}) {
   const showToast = useToast();
   const [values, setValues] = useState({ name: '', company: '', email: '', intents: [], message: '' });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const hasStartedRef = useRef(false);
 
   const validate = (v) => {
     const e = {};
@@ -30,6 +38,10 @@ export function ContactForm() {
   };
 
   const update = (field, val) => {
+    if (!hasStartedRef.current) {
+      hasStartedRef.current = true;
+      trackEvent('Contact Form Started', { form_location: formLocation, service_id: serviceId });
+    }
     const next = { ...values, [field]: val };
     setValues(next);
     if (touched[field]) {
@@ -54,6 +66,20 @@ export function ContactForm() {
     if (Object.keys(errs).length === 0) {
       setSubmitted(true);
       showToast("Message sent. We'll come back to you shortly.");
+      trackEvent('Contact Form Submitted', {
+        form_location: formLocation,
+        service_id: serviceId,
+        has_company: !!values.company.trim(),
+        intents_selected: values.intents,
+        intents_count: values.intents.length,
+        message_length_bucket: messageLengthBucket(values.message.trim().length),
+      });
+    } else {
+      trackEvent('Contact Form Validation Failed', {
+        form_location: formLocation,
+        service_id: serviceId,
+        failed_fields: Object.keys(errs),
+      });
     }
   };
 

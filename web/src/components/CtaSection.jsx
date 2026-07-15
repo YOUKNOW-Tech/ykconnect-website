@@ -26,8 +26,8 @@ export function CtaSection() {
           One email, one honest answer about whether we're the right fit. No 40-slide deck, promise.
         </p>
         <div style={{ display: 'inline-flex', gap: 14, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <Btn intent="on-dark" size="lg" href="/contact">Start a conversation</Btn>
-          <Btn intent="ghost-light" size="lg" href="mailto:connect@youknow.co.za">connect@youknow.co.za →</Btn>
+          <Btn intent="on-dark" size="lg" href="/contact" trackProps={{ location: 'cta_section' }}>Start a conversation</Btn>
+          <Btn intent="ghost-light" size="lg" href="mailto:connect@youknow.co.za" trackProps={{ location: 'cta_section' }}>connect@youknow.co.za →</Btn>
         </div>
         <div style={{ marginTop: 36, fontFamily: 'var(--font-handwritten)', color: 'white', fontSize: 24, transform: 'rotate(-2deg)' }}>
           YOUKNOW &lt;3

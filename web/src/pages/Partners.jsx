@@ -2,9 +2,9 @@
 // Shipped in the "Grid / Soft / Default" configuration (the design tool's
 // tweak panel was a design-exploration surface, not a customer-facing control —
 // this bakes in the combination that was actually chosen).
-import { Link } from 'react-router-dom';
 import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Badge, PartnerLogo } from '../components/brand.jsx';
+import { TrackedLink } from '../components/TrackedLink.jsx';
 import { CtaSection } from '../components/CtaSection.jsx';
 import { Seo } from '../components/Seo.jsx';
 import { PARTNERS_DATA } from '../data/partners.js';
@@ -26,7 +26,7 @@ function PartnersByCategory() {
                 letterSpacing: '-0.02em', lineHeight: 1.1, margin: 0, color: 'var(--ykc-navy-900)',
               }}>{cat.catLong}</h2>
               <span style={{ flex: 1, borderTop: '1.5px dotted rgba(7,20,57,0.32)', minWidth: 40 }} />
-              <Link to={cat.href} style={{
+              <TrackedLink to={cat.href} trackProps={{ location: 'partners_category_header' }} style={{
                 fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 14,
                 color: 'var(--ykc-blue-500)', textDecoration: 'none',
                 padding: '8px 14px', borderRadius: 999, border: '1.5px solid var(--ykc-blue-500)',
@@ -34,7 +34,7 @@ function PartnersByCategory() {
               }}
               onMouseOver={(e) => { e.currentTarget.style.background = 'var(--ykc-blue-500)'; e.currentTarget.style.color = 'white'; }}
               onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--ykc-blue-500)'; }}
-              >See the service →</Link>
+              >See the service →</TrackedLink>
             </div>
 
             <div style={{
@@ -79,11 +79,11 @@ function PartnersByCategory() {
                       ))}
                     </div>
                   </div>
-                  <Link to={`/partners/${p.slug}`} style={{
+                  <TrackedLink to={`/partners/${p.slug}`} trackProps={{ location: 'partner_card' }} style={{
                     marginTop: 2, alignSelf: 'flex-start', position: 'relative',
                     fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 13.5,
                     color: 'var(--ykc-blue-500)', textDecoration: 'none',
-                  }}>Learn more about {p.name} →</Link>
+                  }}>Learn more about {p.name} →</TrackedLink>
                 </article>
               ))}
             </div>

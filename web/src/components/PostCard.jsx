@@ -1,5 +1,5 @@
 // Blog post card — used on the /blog index grid and in "keep reading" on posts.
-import { Link } from 'react-router-dom';
+import { TrackedLink } from './TrackedLink.jsx';
 import { Badge, PartnerLogo } from './brand.jsx';
 
 export function formatPostDate(iso) {
@@ -10,7 +10,7 @@ export function formatPostDate(iso) {
 
 export function PostCard({ post }) {
   return (
-    <Link to={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+    <TrackedLink to={`/blog/${post.slug}`} trackLabel={post.title} trackProps={{ location: 'post_card' }} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <article style={{
         background: 'var(--ykc-beige-300)',
         border: '1.5px dotted rgba(7,20,57,0.22)',
@@ -49,6 +49,6 @@ export function PostCard({ post }) {
           </div>
         </div>
       </article>
-    </Link>
+    </TrackedLink>
   );
 }

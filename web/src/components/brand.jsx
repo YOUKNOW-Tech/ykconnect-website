@@ -4,6 +4,7 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useToast } from '../context/ToastContext.js';
+import { trackEvent } from '../lib/analytics.js';
 
 const RAGE_CLICK_THRESHOLD = 5;
 const RAGE_CLICK_WINDOW_MS = 1200;
@@ -145,11 +146,20 @@ export function Badge({ children, intent = 'blue', dot = false }) {
 
 // Internal routes are plain "/path" strings — routed client-side via <Link>.
 // mailto:, http(s):, and # anchors fall through to a plain <a>.
-function isInternal(href) {
+export function isInternal(href) {
   return typeof href === 'string' && href.startsWith('/') && !href.startsWith('//');
 }
 
-export function Btn({ children, intent = 'primary', size = 'md', onClick, href, style = {}, type = 'button', target }) {
+// Classifies a href for analytics: which of these four buckets it falls into.
+export function classifyLink(href) {
+  if (typeof href !== 'string') return null;
+  if (href.startsWith('mailto:')) return 'mailto';
+  if (href.startsWith('#')) return 'anchor';
+  if (isInternal(href)) return 'internal';
+  return 'external';
+}
+
+export function Btn({ children, intent = 'primary', size = 'md', onClick, href, style = {}, type = 'button', target, trackLabel, trackProps }) {
   const sizes = {
     sm: { padding: '8px 16px', fontSize: 12 },
     md: { padding: '12px 22px', fontSize: 14 },
@@ -183,14 +193,24 @@ export function Btn({ children, intent = 'primary', size = 'md', onClick, href, 
     if (intent === 'ghost-light') e.currentTarget.style.background = 'transparent';
     if (intent === 'secondary') { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--ykc-navy-900)'; }
   };
+  const handleClick = (e) => {
+    trackEvent('CTA Clicked', {
+      label: trackLabel || (typeof children === 'string' ? children : null) || href || null,
+      destination: href || null,
+      link_type: classifyLink(href),
+      intent,
+      ...trackProps,
+    });
+    onClick?.(e);
+  };
   if (href) {
     if (isInternal(href)) {
-      return <Link to={href} onClick={onClick} style={base} onMouseOver={onOver} onMouseOut={onOut}>{children}</Link>;
+      return <Link to={href} onClick={handleClick} style={base} onMouseOver={onOver} onMouseOut={onOut}>{children}</Link>;
     }
-    return <a href={href} target={target} onClick={onClick} style={base} onMouseOver={onOver} onMouseOut={onOut}>{children}</a>;
+    return <a href={href} target={target} onClick={handleClick} style={base} onMouseOver={onOver} onMouseOut={onOut}>{children}</a>;
   }
   return (
-    <button type={type} onClick={onClick} style={base} onMouseOver={onOver} onMouseOut={onOut}>
+    <button type={type} onClick={handleClick} style={base} onMouseOver={onOver} onMouseOut={onOut}>
       {children}
     </button>
   );
