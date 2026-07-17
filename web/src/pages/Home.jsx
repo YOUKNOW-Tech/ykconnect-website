@@ -115,7 +115,7 @@ function BroadcastHero() {
             <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap', marginBottom: 30 }}>
               <Eyebrow color="var(--ykc-blue-400)">Customer technology · for Africa</Eyebrow>
               <Sticker bg="var(--ykc-beige-500)" color="var(--ykc-navy-900)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)"
-                onClick={() => showToast('We monitor everything 👀')}>CTN · JHB · CPT</Sticker>
+                onClick={() => showToast('We monitor everything 👀')}>JHB · CPT</Sticker>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-display)', fontWeight: 800, textTransform: 'uppercase',
@@ -264,8 +264,8 @@ function ServicesRail() {
         scrollbarWidth: 'none',
       }}>
         {RAIL_SERVICES.map((s) => (
-          <div key={s.tag} style={{
-            flex: '0 0 auto', width: 'min(420px, 82vw)', scrollSnapAlign: 'start',
+          <div key={s.tag} className="rail-card" style={{
+            flex: '0 0 auto', scrollSnapAlign: 'start',
             background: s.bg, borderRadius: 22, padding: '30px 28px 28px',
             border: '2px solid var(--ykc-navy-900)',
             color: 'var(--ykc-navy-900)',
@@ -324,10 +324,12 @@ function ServicesRail() {
       </div>
       <style>{`
         .rail::-webkit-scrollbar { display: none; }
+        .rail-card { width: min(420px, 82vw); }
         @media (min-width: 900px) {
+          .rail-card { width: min(420px, 30%); }
           .rail {
-            -webkit-mask-image: linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%);
-            mask-image: linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, black 0%, black calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to right, black 0%, black calc(100% - 24px), transparent 100%);
           }
         }
       `}</style>

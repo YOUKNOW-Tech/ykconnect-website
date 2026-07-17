@@ -256,7 +256,7 @@ function AboutFamily() {
           Visit youknow.co.za ↗
         </TrackedLink>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: 16 }}>
-          <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">CTN · JHB · CPT</Sticker>
+          <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">JHB · CPT</Sticker>
           <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm"
             onClick={() => showToast('2013 called. Still proud of us.')}>Since 2013</Sticker>
           <Sticker bg="var(--ykc-navy-900)" color="var(--ykc-blue-400)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)">YOUKNOW &lt;3</Sticker>
