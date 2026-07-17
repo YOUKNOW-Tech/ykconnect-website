@@ -7,6 +7,7 @@ import { SiteShell, useToast } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Btn, BinaryStrip, PartnerLogo, ConnectorLine } from '../components/brand.jsx';
 import { TrackedLink } from '../components/TrackedLink.jsx';
 import { Seo } from '../components/Seo.jsx';
+import { trackEvent } from '../lib/analytics.js';
 
 // Her painted eyes, re-rendered inside elliptical windows from small inpainted
 // crops (shades/background removed) so the gaze can slide toward the light
@@ -224,6 +225,7 @@ function ServicesRail() {
   const scrollBy = (dir) => {
     const el = railRef.current;
     if (el) el.scrollBy({ left: dir * (el.querySelector('a')?.offsetWidth + 20 || 440), behavior: 'smooth' });
+    trackEvent('Rail Arrow Clicked', { direction: dir < 0 ? 'left' : 'right', location: 'service_rail' });
   };
   return (
     <section id="chapters" style={{ background: 'var(--ykc-white)', padding: '104px 0 96px', overflow: 'hidden' }} data-screen-label="Services rail">
