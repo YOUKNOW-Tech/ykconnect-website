@@ -87,10 +87,16 @@ function BroadcastHero() {
           {[0, 1].map(k => (
             <div key={k} aria-hidden={k === 1} style={{ display: 'flex', alignItems: 'center', gap: 26, paddingRight: 26 }}>
               {[
-                'BREAKING: local consultancy tells client they don’t need another platform yet',
                 'LIVE: dashboards being opened voluntarily',
                 'UPDATE: WhatsApp confirmed as where your customers are',
                 'JUST IN: honest answer given, no deck attached',
+                'CONFIRMED: churn dropped, nobody popped champagne',
+                'DEVELOPING: marketing and IT agreeing on something',
+                'BREAKING: campaign sent without three approval meetings',
+                'UPDATE: customer data lives in one place now',
+                'LIVE: segment built in minutes, not sprints',
+                'CONFIRMED: WhatsApp opt-in rate up, ad budget down',
+                'UPDATE: attribution numbers finally match across teams',
               ].map(w => (
                 <Fragment key={w}>
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.14em', color: 'white', whiteSpace: 'nowrap', textTransform: 'uppercase' }}>{w}</span>
