@@ -19,17 +19,25 @@ const INTENTS = [
   { v: 'engagement', l: 'Customer engagement support' },
 ];
 
+function readHubspotutkCookie() {
+  const match = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+  return match ? match[1] : null;
+}
+
 export function ContactForm({ formLocation = 'contact_page', serviceId = null } = {}) {
   const showToast = useToast();
-  const [values, setValues] = useState({ name: '', company: '', email: '', intents: [], message: '' });
+  const [values, setValues] = useState({ firstName: '', lastName: '', company: '', email: '', intents: [], message: '', website: '' });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
   const hasStartedRef = useRef(false);
 
   const validate = (v) => {
     const e = {};
-    if (!v.name.trim()) e.name = 'What should we call you?';
+    if (!v.firstName.trim()) e.firstName = 'What should we call you?';
+    if (!v.lastName.trim()) e.lastName = 'And your last name?';
     if (!v.email.trim()) e.email = "We'll need somewhere to reply.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = "That doesn't look like an email.";
     if (!v.message.trim()) e.message = 'Tell us what\'s going on, even one sentence.';
@@ -58,28 +66,66 @@ export function ContactForm({ formLocation = 'contact_page', serviceId = null } 
     setErrors(validate(values));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    if (submitting) return;
     const errs = validate(values);
     setErrors(errs);
-    setTouched({ name: true, email: true, message: true });
-    if (Object.keys(errs).length === 0) {
-      setSubmitted(true);
-      showToast("Message sent. We'll come back to you shortly.");
-      trackEvent('Contact Form Submitted', {
-        form_location: formLocation,
-        service_id: serviceId,
-        has_company: !!values.company.trim(),
-        intents_selected: values.intents,
-        intents_count: values.intents.length,
-        message_length_bucket: messageLengthBucket(values.message.trim().length),
-      });
-    } else {
+    setTouched({ firstName: true, lastName: true, email: true, message: true });
+    if (Object.keys(errs).length !== 0) {
       trackEvent('Contact Form Validation Failed', {
         form_location: formLocation,
         service_id: serviceId,
         failed_fields: Object.keys(errs),
       });
+      return;
+    }
+
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/hubspot-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...values,
+          formLocation,
+          serviceId,
+          pageUri: window.location.href,
+          pageName: document.title,
+          hutk: readHubspotutkCookie(),
+        }),
+      });
+      const data = await res.json().catch(() => ({ ok: false }));
+      if (res.ok && data.ok) {
+        setSubmitted(true);
+        showToast("Message sent. We'll come back to you shortly.");
+        trackEvent('Contact Form Submitted', {
+          form_location: formLocation,
+          service_id: serviceId,
+          has_company: !!values.company.trim(),
+          intents_selected: values.intents,
+          intents_count: values.intents.length,
+          message_length_bucket: messageLengthBucket(values.message.trim().length),
+          hubspot_status: 'success',
+        });
+      } else {
+        setSubmitError("That didn't send — mind trying again? If it keeps happening, email us directly at connect@youknow.co.za.");
+        trackEvent('Contact Form Submission Failed', {
+          form_location: formLocation,
+          service_id: serviceId,
+          reason: data.error || 'unknown',
+        });
+      }
+    } catch {
+      setSubmitError("That didn't send — mind trying again? If it keeps happening, email us directly at connect@youknow.co.za.");
+      trackEvent('Contact Form Submission Failed', {
+        form_location: formLocation,
+        service_id: serviceId,
+        reason: 'network',
+      });
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -99,13 +145,13 @@ export function ContactForm({ formLocation = 'contact_page', serviceId = null } 
             fontFamily: "'Press Start 2P', monospace", fontSize: 24,
           }}>✓</div>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 32, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.05, margin: 0 }}>
-            Got it, <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>{values.name.split(' ')[0] || 'friend'}</em>.
+            Got it, <em style={{ fontStyle: 'normal', color: 'var(--ykc-blue-500)' }}>{values.firstName || 'friend'}</em>.
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.6, color: 'var(--ykc-navy-700)', margin: 0 }}>
             Your message landed safely. We'll come back to you within two business days, usually with a frank yes-or-no on whether we're the right fit, and the next step if we are.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
-            <Btn intent="ghost" onClick={() => { setSubmitted(false); setValues({ name: '', company: '', email: '', intents: [], message: '' }); setTouched({}); setErrors({}); }}>← Send another</Btn>
+            <Btn intent="ghost" onClick={() => { setSubmitted(false); setValues({ firstName: '', lastName: '', company: '', email: '', intents: [], message: '', website: '' }); setTouched({}); setErrors({}); }}>← Send another</Btn>
             <Btn intent="primary" href="/">Back to home</Btn>
           </div>
           <div style={{ marginTop: 18, fontFamily: 'var(--font-handwritten)', color: 'var(--ykc-blue-500)', fontSize: 22, transform: 'rotate(-2deg)', display: 'inline-block' }}>
@@ -130,18 +176,29 @@ export function ContactForm({ formLocation = 'contact_page', serviceId = null } 
           <span style={{ flex: 1, borderTop: '1.5px dotted rgba(7,20,57,0.32)' }} />
         </div>
 
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
+          value={values.website} onChange={(e) => update('website', e.target.value)}
+          style={{ position: 'absolute', left: -9999, width: 1, height: 1, opacity: 0 }} />
+
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }} className="form-row">
-          <div className={`field ${errors.name && touched.name ? 'invalid' : ''}`}>
-            <label htmlFor="cf-name">Your name *</label>
-            <input id="cf-name" type="text" placeholder="Thandi N." value={values.name}
-              onChange={(e) => update('name', e.target.value)} onBlur={() => blur('name')} />
-            {errors.name && touched.name && <span className="field-error">{errors.name}</span>}
+          <div className={`field ${errors.firstName && touched.firstName ? 'invalid' : ''}`}>
+            <label htmlFor="cf-first-name">First name *</label>
+            <input id="cf-first-name" type="text" placeholder="Thandi" value={values.firstName}
+              onChange={(e) => update('firstName', e.target.value)} onBlur={() => blur('firstName')} />
+            {errors.firstName && touched.firstName && <span className="field-error">{errors.firstName}</span>}
           </div>
-          <div className="field">
-            <label htmlFor="cf-company">Company</label>
-            <input id="cf-company" type="text" placeholder="Acme Co." value={values.company}
-              onChange={(e) => update('company', e.target.value)} />
+          <div className={`field ${errors.lastName && touched.lastName ? 'invalid' : ''}`}>
+            <label htmlFor="cf-last-name">Last name *</label>
+            <input id="cf-last-name" type="text" placeholder="Nkosi" value={values.lastName}
+              onChange={(e) => update('lastName', e.target.value)} onBlur={() => blur('lastName')} />
+            {errors.lastName && touched.lastName && <span className="field-error">{errors.lastName}</span>}
           </div>
+        </div>
+
+        <div className="field">
+          <label htmlFor="cf-company">Company</label>
+          <input id="cf-company" type="text" placeholder="Acme Co." value={values.company}
+            onChange={(e) => update('company', e.target.value)} />
         </div>
 
         <div className={`field ${errors.email && touched.email ? 'invalid' : ''}`}>
@@ -183,11 +240,23 @@ export function ContactForm({ formLocation = 'contact_page', serviceId = null } 
           {errors.message && touched.message && <span className="field-error">{errors.message}</span>}
         </div>
 
+        {submitError && (
+          <div role="alert" style={{
+            background: '#FEF6F6', border: '1.5px solid #D14545', borderRadius: 12,
+            padding: '12px 16px', color: '#D14545', fontFamily: 'var(--font-body)', fontSize: 14,
+          }}>
+            {submitError}
+          </div>
+        )}
+
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 4, gap: 14, flexWrap: 'wrap' }}>
           <span style={{ fontSize: 12, color: 'var(--ykc-navy-500)', lineHeight: 1.5 }}>
             We'll only use this to reply. POPIA-aware, no surprise newsletter.
           </span>
-          <Btn intent="primary" size="lg" type="submit">Send it →</Btn>
+          <Btn intent="primary" size="lg" type="submit"
+            style={{ opacity: submitting ? 0.6 : 1, pointerEvents: submitting ? 'none' : 'auto' }}>
+            {submitting ? 'Sending…' : 'Send it →'}
+          </Btn>
         </div>
       </div>
       <style>{`
