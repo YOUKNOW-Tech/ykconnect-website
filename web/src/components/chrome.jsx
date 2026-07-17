@@ -86,7 +86,8 @@ function Header() {
   }, [mobileOpen]);
 
   const services = NAV.filter(n => n.group === 'services');
-  const partnersFlat = PARTNERS_DATA.flatMap((c) => c.items.map((p) => ({ ...p, cat: c.cat })));
+  const partnersFlat = PARTNERS_DATA.flatMap((c) => c.items.map((p) => ({ ...p, cat: c.cat })))
+    .sort((a, b) => a.name.localeCompare(b.name));
   const topLinks = [
     NAV.find(n => n.id === 'home'),
     NAV.find(n => n.id === 'about'),
