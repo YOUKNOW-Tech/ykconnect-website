@@ -6,6 +6,7 @@ import { Eyebrow, Sticker, Btn, Badge, ConnectorLine, PartnerLogo } from '../com
 import { TrackedLink } from '../components/TrackedLink.jsx';
 import { ContactForm } from '../components/ContactForm.jsx';
 import { Seo } from '../components/Seo.jsx';
+import { PARTNERS_DATA } from '../data/partners.js';
 
 function ServiceHero({ cfg }) {
   return (
@@ -193,6 +194,7 @@ function ServiceProblems({ cfg }) {
 }
 
 function ServicePartnersBlock({ cfg }) {
+  const secondary = PARTNERS_DATA.find(c => c.cat === cfg.shortTag)?.secondary;
   return (
     <section style={{ background: 'var(--ykc-navy-900)', color: 'var(--ykc-beige-500)', padding: '96px 0', position: 'relative', overflow: 'hidden' }}>
       <img src="/assets/shapes/halftone-faded-circle-blue.png" alt="" style={{ position: 'absolute', left: -150, bottom: -180, width: 540, opacity: 0.4, pointerEvents: 'none' }} />
@@ -243,6 +245,24 @@ function ServicePartnersBlock({ cfg }) {
             </div>
           ))}
         </div>
+
+        {secondary && secondary.length > 0 && (
+          <div style={{
+            marginTop: 32, paddingTop: 24, borderTop: '1px dotted rgba(255,255,255,0.18)',
+            display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap',
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700,
+              letterSpacing: '0.14em', textTransform: 'uppercase',
+              color: 'var(--ykc-navy-300)', whiteSpace: 'nowrap',
+            }}>We also implement &amp; support</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 22, flexWrap: 'wrap' }}>
+              {secondary.map((name) => (
+                <PartnerLogo key={name} name={name} height={15} onDark style={{ color: 'var(--ykc-beige-500)', opacity: 0.55 }} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <style>{`
         @media (max-width: 1100px) {

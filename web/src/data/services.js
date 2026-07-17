@@ -37,14 +37,14 @@ export const CEP = {
   partnersLead: "Each leads its segment. None is right for everyone. We'll only implement one we think you'll actually use a year from now.",
   partners: [
     {
-      name: 'OneSignal', role: 'Mid-market',
-      body: 'The fast, developer-friendly step up from Firebase. Push, email, SMS, in-app from a single platform, designed for speed to value and predictable pricing.',
-      bestFor: 'Scaling apps and lean teams that need speed to value.',
-    },
-    {
       name: 'InsiderOne', role: 'Web + App + CDP',
       body: 'Cross-channel engagement plus deep on-site and in-app personalisation, with a built-in CDP. Particularly strong for retail, e-commerce, and travel.',
       bestFor: 'Brands where website experience and comms must work as one.',
+    },
+    {
+      name: 'OneSignal', role: 'Mid-market',
+      body: 'The fast, developer-friendly step up from Firebase. Push, email, SMS, in-app from a single platform, designed for speed to value and predictable pricing.',
+      bestFor: 'Scaling apps and lean teams that need speed to value.',
     },
   ],
   howTitle: 'We assess. We pick. We implement. Then we stay.',

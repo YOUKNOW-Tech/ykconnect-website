@@ -33,7 +33,7 @@ function AboutStory() {
               For years, customer technology in Sub-Saharan Africa has worked like this: a global platform appoints a local reseller, the reseller earns margin on every licence they shift, and the recommendation that lands in your inbox happens to match what they sell. Funny, that.
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: 0 }}>
-              We do it the other way around. We partner with the platforms that genuinely lead their categories (OneSignal, InsiderOne, Amperity, Amplitude, DOMO, AppsFlyer, Branch), but we're paid to solve your problem, not to push a licence. If the right answer is a tool we don't sell, we'll say so. If two of our partners would both work, we'll tell you the trade-offs honestly.
+              We do it the other way around. We partner with the platforms that genuinely lead their categories (Amperity, Amplitude, AppsFlyer, Branch, DOMO, InsiderOne, OneSignal), but we're paid to solve your problem, not to push a licence. If the right answer is a tool we don't sell, we'll say so. If two of our partners would both work, we'll tell you the trade-offs honestly.
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.65, color: 'var(--ykc-navy-700)', margin: 0 }}>
               And we stay around after the contract is signed. The relationship starts at go-live, not ends there.
@@ -133,7 +133,7 @@ function AboutAfrica() {
                 ['Connectivity-aware', 'Designed for users on patchy data, not gigabit fibre.'],
                 ['Mobile-money fluent', 'We know what M-Pesa and friends mean for identity stitching.'],
                 ['Currency- and tax-savvy', 'ZAR, NGN, KES, GHS, and friends. Handled.'],
-                ['On the ground', 'Centurion HQ, with Joburg & Cape Town on the ground.'],
+                ['On the ground', 'Centurion HQ, with Joburg & Cape Town (Durbanville) on the ground.'],
               ].map(([t, b], i) => (
                 <li key={i} style={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: 10, borderTop: '1px dotted rgba(255,255,255,0.22)' }}>
                   <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 14.5, color: 'var(--ykc-blue-400)', letterSpacing: '-0.005em' }}>{t}</span>
@@ -256,7 +256,7 @@ function AboutFamily() {
           Visit youknow.co.za ↗
         </TrackedLink>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', marginTop: 16 }}>
-          <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">Centurion · ZA</Sticker>
+          <Sticker bg="white" color="var(--ykc-navy-900)" rotate={-2} size="sm">CTN · JHB · CPT</Sticker>
           <Sticker bg="var(--ykc-blue-500)" color="white" rotate={3} size="sm"
             onClick={() => showToast('2013 called. Still proud of us.')}>Since 2013</Sticker>
           <Sticker bg="var(--ykc-navy-900)" color="var(--ykc-blue-400)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)">YOUKNOW &lt;3</Sticker>

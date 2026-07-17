@@ -2,6 +2,7 @@
 // Shipped in the "Grid / Soft / Default" configuration (the design tool's
 // tweak panel was a design-exploration surface, not a customer-facing control —
 // this bakes in the combination that was actually chosen).
+import { useEffect } from 'react';
 import { SiteShell, PageHero } from '../components/chrome.jsx';
 import { Eyebrow, Sticker, Badge, PartnerLogo } from '../components/brand.jsx';
 import { TrackedLink } from '../components/TrackedLink.jsx';
@@ -14,7 +15,7 @@ function PartnersByCategory() {
     <section style={{ background: 'var(--ykc-white)', padding: '64px 0 96px' }}>
       <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
         {PARTNERS_DATA.map((cat) => (
-          <div key={cat.cat}>
+          <div key={cat.cat} id={cat.cat.toLowerCase()} style={{ scrollMarginTop: 96 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 24, flexWrap: 'wrap' }}>
               <span style={{
                 fontFamily: "'Press Start 2P', monospace", fontSize: 14,
@@ -161,6 +162,12 @@ function PartnersHonestyNote() {
 }
 
 export default function Partners() {
+  useEffect(() => {
+    if (!window.location.hash) return;
+    const el = document.getElementById(window.location.hash.slice(1));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, []);
+
   return (
     <SiteShell>
       <Seo

@@ -400,7 +400,7 @@ function Footer() {
           ))}
         </div>
         <div style={{ borderTop: '1px dotted rgba(255,255,255,0.2)', paddingTop: 22, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap', fontSize: 12, color: 'var(--ykc-navy-300)' }}>
-          <span>© 2026 YOUKNOW Connect · A division of the YOUKNOW family · Built in Centurion</span>
+          <span>© 2026 YOUKNOW Connect · A division of the YOUKNOW family · Built in Centurion, Joburg &amp; Cape Town</span>
           <span style={{ fontFamily: 'var(--font-handwritten)', fontSize: 17, color: 'var(--ykc-blue-400)' }}>made with &lt;3 in ZA</span>
         </div>
       </div>

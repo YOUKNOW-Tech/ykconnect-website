@@ -87,7 +87,7 @@ function BroadcastHero() {
           {[0, 1].map(k => (
             <div key={k} aria-hidden={k === 1} style={{ display: 'flex', alignItems: 'center', gap: 26, paddingRight: 26 }}>
               {[
-                'BREAKING: local consultancy tells client they don’t need a CDP yet',
+                'BREAKING: local consultancy tells client they don’t need another platform yet',
                 'LIVE: dashboards being opened voluntarily',
                 'UPDATE: WhatsApp confirmed as where your customers are',
                 'JUST IN: honest answer given, no deck attached',
@@ -108,7 +108,7 @@ function BroadcastHero() {
             <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap', marginBottom: 30 }}>
               <Eyebrow color="var(--ykc-blue-400)">Customer technology · for Africa</Eyebrow>
               <Sticker bg="var(--ykc-beige-500)" color="var(--ykc-navy-900)" rotate={-3} size="sm" shadow="var(--ykc-blue-500)"
-                onClick={() => showToast('We monitor everything 👀')}>EST. CENTURION</Sticker>
+                onClick={() => showToast('We monitor everything 👀')}>CTN · JHB · CPT</Sticker>
             </div>
             <h1 style={{
               fontFamily: 'var(--font-display)', fontWeight: 800, textTransform: 'uppercase',
@@ -206,7 +206,7 @@ function BroadcastHero() {
 
 
 const RAIL_SERVICES = [
-  { n: '01', tag: 'CEP',  title: 'Customer Engagement',    desc: 'Real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp.', partners: ['OneSignal', 'InsiderOne'], href: '/services/cep', img: '/assets/collages/customer-engagement-strategy.png', bg: 'var(--ykc-beige-300)' },
+  { n: '01', tag: 'CEP',  title: 'Customer Engagement',    desc: 'Real-time, personalised messaging across email, push, SMS, in-app, and WhatsApp.', partners: ['InsiderOne', 'OneSignal'], href: '/services/cep', img: '/assets/collages/customer-engagement-strategy.png', bg: 'var(--ykc-beige-300)' },
   { n: '02', tag: 'CDP',  title: 'Customer Data Platform', desc: 'Every version of your customer, stitched into one profile your whole business can trust.', partners: ['Amperity'], href: '/services/cdp', img: '/assets/collages/team.png', bg: 'var(--ykc-blue-100)' },
   { n: '03', tag: 'PA',   title: 'Product Analytics',      desc: "The answers GA4 can't give you: funnels, retention and adoption, without waiting on an analyst.", partners: ['Amplitude'], href: '/services/pa', img: '/assets/collages/reading-analytics-insights.png', bg: 'var(--ykc-beige-300)' },
   { n: '04', tag: 'BI',   title: 'Business Intelligence',  desc: 'Dashboards the whole business actually uses, not just the data team.', partners: ['DOMO'], href: '/services/bi', img: '/assets/collages/art-of-reporting.png', bg: 'var(--ykc-blue-100)' },
@@ -256,17 +256,13 @@ function ServicesRail() {
         scrollbarWidth: 'none',
       }}>
         {RAIL_SERVICES.map((s) => (
-          <TrackedLink key={s.tag} to={s.href} trackLabel={s.title} trackProps={{ location: 'service_rail' }} style={{
+          <div key={s.tag} style={{
             flex: '0 0 auto', width: 'min(420px, 82vw)', scrollSnapAlign: 'start',
             background: s.bg, borderRadius: 22, padding: '30px 28px 28px',
             border: '2px solid var(--ykc-navy-900)',
-            textDecoration: 'none', color: 'var(--ykc-navy-900)',
+            color: 'var(--ykc-navy-900)',
             display: 'flex', flexDirection: 'column', gap: 0, position: 'relative',
-            transition: 'transform .22s var(--ease-snap), box-shadow .22s var(--ease-snap)',
-            boxShadow: '0 0 0 var(--ykc-navy-900)',
           }}
-          onMouseOver={(e) => { e.currentTarget.style.transform = 'translate(-4px, -4px)'; e.currentTarget.style.boxShadow = '8px 8px 0 var(--ykc-navy-900)'; }}
-          onMouseOut={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 0 0 var(--ykc-navy-900)'; }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span style={{
@@ -279,19 +275,38 @@ function ServicesRail() {
             <img src={s.img} alt="" style={{ width: '78%', maxHeight: 240, objectFit: 'contain', margin: '18px auto 6px' }} />
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 27, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.05, margin: '10px 0 10px' }}>{s.title}</h3>
             <p style={{ fontSize: 14.5, lineHeight: 1.55, color: 'var(--ykc-navy-700)', margin: 0 }}>{s.desc}</p>
-            <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center', justifyContent: 'space-between' }}>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {s.partners.map(p => (
-                  <span key={p} style={{
-                    fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700,
-                    padding: '5px 11px', borderRadius: 999, border: '1px dotted var(--ykc-navy-700)',
-                    letterSpacing: '0.06em', textTransform: 'uppercase',
-                  }}>{p}</span>
-                ))}
-              </div>
-              <span style={{ fontSize: 18 }}>↗</span>
+            <div style={{ marginTop: 16, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {s.partners.map(p => (
+                <span key={p} style={{
+                  fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 700,
+                  padding: '5px 11px', borderRadius: 999, border: '1px dotted var(--ykc-navy-700)',
+                  letterSpacing: '0.06em', textTransform: 'uppercase',
+                }}>{p}</span>
+              ))}
             </div>
-          </TrackedLink>
+            <div style={{ marginTop: 22, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <TrackedLink to={`/partners#${s.tag.toLowerCase()}`} trackLabel={`${s.title} — product`} trackProps={{ location: 'service_rail' }} style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
+                fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 14,
+                textDecoration: 'none', color: 'var(--ykc-navy-900)',
+                padding: '12px 16px', borderRadius: 12, border: '1.5px solid var(--ykc-navy-900)',
+                background: 'transparent', transition: 'all .15s',
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.background = 'var(--ykc-navy-900)'; e.currentTarget.style.color = 'var(--ykc-beige-500)'; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--ykc-navy-900)'; }}
+              >Looking for a product? <span>↗</span></TrackedLink>
+              <TrackedLink to={s.href} trackLabel={`${s.title} — services`} trackProps={{ location: 'service_rail' }} style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
+                fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 14,
+                textDecoration: 'none', color: 'white',
+                padding: '12px 16px', borderRadius: 12, border: '1.5px solid var(--ykc-navy-900)',
+                background: 'var(--ykc-navy-900)', transition: 'all .15s',
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.opacity = 0.85; }}
+              onMouseOut={(e) => { e.currentTarget.style.opacity = 1; }}
+              >Need help with current stack? <span>↗</span></TrackedLink>
+            </div>
+          </div>
         ))}
       </div>
       <div className="wrap-wide" style={{ marginTop: 8 }}>
@@ -301,6 +316,12 @@ function ServicesRail() {
       </div>
       <style>{`
         .rail::-webkit-scrollbar { display: none; }
+        @media (min-width: 900px) {
+          .rail {
+            -webkit-mask-image: linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%);
+            mask-image: linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%);
+          }
+        }
       `}</style>
     </section>
   );
@@ -418,14 +439,27 @@ function CtaNavy() {
       {/* partner logo strip */}
       <div className="wrap" style={{ position: 'relative', marginBottom: 64 }}>
         <div style={{
-          display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between',
           padding: '20px 26px', borderRadius: 18, border: '1px dotted rgba(255,255,255,0.24)',
+          display: 'flex', flexDirection: 'column', gap: 18,
         }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.28em', color: 'var(--ykc-blue-400)', textTransform: 'uppercase' }}>◉ Shipped with</span>
-          <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', alignItems: 'center' }}>
-            {['OneSignal', 'InsiderOne', 'Amperity', 'Amplitude', 'DOMO', 'AppsFlyer', 'Branch'].map(p => (
-              <PartnerLogo key={p} name={p} height={20} onDark style={{ color: 'var(--ykc-beige-500)', opacity: 0.85 }} />
-            ))}
+          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.28em', color: 'var(--ykc-blue-400)', textTransform: 'uppercase' }}>◉ Shipped with</span>
+            <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', alignItems: 'center' }}>
+              {['Amperity', 'Amplitude', 'AppsFlyer', 'Branch', 'DOMO', 'InsiderOne', 'OneSignal'].map(p => (
+                <PartnerLogo key={p} name={p} height={20} onDark style={{ color: 'var(--ykc-beige-500)', opacity: 0.85 }} />
+              ))}
+            </div>
+          </div>
+          <div style={{
+            display: 'flex', gap: 26, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between',
+            paddingTop: 16, borderTop: '1px dotted rgba(255,255,255,0.16)',
+          }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '0.24em', color: 'var(--ykc-navy-300)', textTransform: 'uppercase' }}>+ we also support</span>
+            <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap', alignItems: 'center' }}>
+              {['Braze', 'Customer.io', 'Iterable', 'Mixpanel', 'Moengage'].map(p => (
+                <PartnerLogo key={p} name={p} height={14} onDark style={{ color: 'var(--ykc-beige-500)', opacity: 0.5 }} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
