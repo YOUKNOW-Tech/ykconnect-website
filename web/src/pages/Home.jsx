@@ -292,7 +292,7 @@ function ServicesRail() {
                 }}>{p}</span>
               ))}
             </div>
-            <div style={{ marginTop: 22, display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div style={{ marginTop: 'auto', paddingTop: 22, display: 'flex', flexDirection: 'column', gap: 8 }}>
               <TrackedLink to={`/partners#${s.tag.toLowerCase()}`} trackLabel={`${s.title} — product`} trackProps={{ location: 'service_rail' }} style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
                 fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 14,
